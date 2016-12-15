@@ -1,0 +1,21 @@
+{
+  "name": "coffee-time",
+  "description": "- angular",
+  "main": "index.js",
+  "authors": [
+    "Ksquare Labs"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/KsquareLabs/Coffee-Time",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.0",
+    "bootstrap": "^3.3.7"
+  }
+}
