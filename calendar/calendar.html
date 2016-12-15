@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>calandar settings</title>
+<link rel="stylesheet" href="../bower_components/fullcalendar/dist/fullcalendar.css"/>
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../bower_components/moment/min/moment.min.js"></script>
+<script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="../bower_components/angular-ui-calendar/src/calendar.js"></script>
+<script type="text/javascript" src="../bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+<script type="text/javascript" src="../bower_components/fullcalendar/dist/gcal.js"></script>
+    <script src="calendar.controller.js"></script>
+
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body ng-app="coffee-time" ng-controller="calendarCtlr as vm">
+    <div class=" col-md-6 text-center">
+        <div class="btn-gorup">
+            <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio "'year'">Year</label>
+            <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio "'month'">Month</label>
+            <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio "'week'">Week</label>
+            <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio "'day'">Day</label>
+        </div>
+    </div>
+    <div ui-calendar ng-model="eventSources"></div>
+</body>
+
+
+</html>
