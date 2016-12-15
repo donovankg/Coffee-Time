@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+	<title> Coffee Time</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="App/styles.css">
+	<script src="bower_components/bootstrap/dist/css/bootstrap-theme.css"></script>
+	<script src="bower_components/bootstrap/dist/css/bootstrap.min.css"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script data-main="App/index.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+</head>
+
+<body ng-app="myapp">
+
+	<div ng-controller = "HelloController" >
+         <h2>Welcome {{helloTo.title}} to the world of Tutorialspoint!</h2>
+      </div>
+      
+      <script>
+         angular.module("myapp", [])
+         
+         .controller("HelloController", function($scope) {
+            $scope.helloTo = {};
+            $scope.helloTo.title = "AngularJS";
+         });
+      </script>
+</body>
+
+
+</html>
