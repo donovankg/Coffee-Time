@@ -18,16 +18,13 @@
 
 <body ng-app="coffee-time" ng-controller="calendarCtlr as vm">
     <div class=" col-md-6 text-center">
-        <div class="btn-gorup">
-            <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio "'year'">Year</label>
-            <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio "'month'">Month</label>
-            <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio "'week'">Week</label>
-            <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio "'day'">Day</label>
+        <div class="btn-group">
+
             <label class="btn btn-primary" ng-model="vm.calendarView">Add Event</label>
         </div>
     </div>
     <!-- base calender -->
-    <div ui-calendar ng-model="eventSources"></div>
+    <div ui-calendar="uiConfig.calendar" ng-model="eventSources"></div>
 </body>
 
 
