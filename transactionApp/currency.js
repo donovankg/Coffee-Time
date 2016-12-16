@@ -45,7 +45,11 @@ myApp.controller('QConvertController', function($http, $log, $interval) {
         };
     });
     myApp.controller('TableController', function(){
+
+
+
       this.save = function() {
+
          var t = document.getElementById("theTable");
          var row = document.createElement('tr');
          row.setAttribute('class', 'clickable-row')
@@ -86,7 +90,7 @@ myApp.controller('QConvertController', function($http, $log, $interval) {
         button1.addEventListener('click', function(event){
           if(event.target.parentNode.parentNode.className=='clickable-row'){
             var row = event.target.parentNode.parentNode;
-            
+
           }
         });
        td2.appendChild(button1);
@@ -96,10 +100,19 @@ myApp.controller('QConvertController', function($http, $log, $interval) {
        row.appendChild(td2);
        t.appendChild(row);
 
-       var section = document.getElementsByClassName("container-fluid");
-       var storeLocal = section.innerHTML;
-       localStorage.setItem('storedValues', storeLocal);
 
+       window.addEventListener('onload', load);
+
+         var k =document.getElementById("theTable");
+         var storeLocal = k.innerHTML;
+         localStorage.setItem('storedValues', JSON.stringify(storeLocal));
+         function load(){
+           console.log('ko');
+         var storedValue =$.parseJSON(localStorage.getItem('storedValues'));
+
+          k.innerHTML= storedValue;
+          console.log(k);
+       }
      }
 
       this.convert=function(curr){
