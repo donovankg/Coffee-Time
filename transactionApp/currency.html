@@ -27,27 +27,31 @@
             </div>
             <div class="col-xs-6" ng-controller="TableController as vm">
               <div class="btn-group" role="group" aria-label="..." >
-                <button type="button" class="btn btn-default">USD</button>
-                <button type="button" class="btn btn-default">MXN</button>
-                <button type="button" class="btn btn-default">EUR</button>
+                <button type="button" class="btn btn-default" ng-click="vm.convert('USD')">USD</button>
+                <button type="button" class="btn btn-default" ng-click="vm.convert('MXN')">MXN</button>
+                <button type="button" class="btn btn-default" ng-click="vm.convert('EUR')">EUR</button>
+                <!-- <button type="button" class="btn btn-default">EDIT</button>
+                <button type="button" class="btn btn-default">DELETE</button> -->
               </div>
                <table class="table table-striped table-bordered">
                   <thead>
                     <tr>
                       <th>Transaction</th>
                       <th class="text-right">Amount</th>
-                      <th></th>
+                      <!-- <th></th> -->
                     </tr>
                   </thead>
+
                   <tbody id="theTable">
-                    <tr id="templateRow">
+                    <!-- <tr id="templateRow" class='clickable-row'>
                         <td><input type="text" class="form-control" /></td>
                         <td><input type="number" pattern=" 0+\.[0-9]*[1-9][0-9]*$" class="form-control" /></td>
-                        <!-- <td><button class="btn btn-xs btn-primary" ng-click="vm.addField()">
+                    </tr> -->
+                        <!-- <td><button class="btn btn-xs btn-primary" ng-click="vm.save()">
                             Save
                           </button>
                         </td> -->
-                        <td class="text-center" ng-show="vm.addField()">
+                        <!-- <td class="text-center" ng-show="vm.sa">
                             <button class="btn btn-xs btn-primary"
                                     ng-click="vm.deleteProduct(item)">
                                 Delete
@@ -55,12 +59,13 @@
                             <button class="btn btn-xs btn-primary" ng-click="vm.editProduct(item)">
                                 Edit
                             </button>
-                        </td>
-                      </tr>
+                        </td> -->
+                      <!-- </tr> -->
                     </tbody>
                 </table>
 
-              <button class="btn btn-primary" ng-click="vm.addRow()">New</button>
+              <!-- <button class="btn btn-primary" ng-click="vm.addRow()">New</button> -->
+              <button class="btn btn-primary" ng-click="vm.save()">Save</button>
               </div>
                <div class="col-xs-4">
                          <div class="page-header">

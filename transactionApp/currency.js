@@ -1,8 +1,6 @@
 var myApp =angular.module('myApp',[]);
 
-
 myApp.controller('QConvertController', function($http, $log, $interval) {
-
 
         this.currencyObject = {
                 from : null,
@@ -15,16 +13,12 @@ myApp.controller('QConvertController', function($http, $log, $interval) {
                               {value : 'USD', display : 'US Dollar (USD)'},
                               {value : 'EUR', display : 'Euro'}];
 
-
         this.convertCurrency = function(){
-
           var currency_from = this.currencyObject.from;
           var currency_to = this.currencyObject.to;
           var currency_amount = this.currencyObject.amount;
-
           this.currencyObject.exchangeRate = currencyConverter(currency_from, currency_to, 1);
           this.currencyObject.amountConverted = this.currencyObject.exchangeRate * currency_amount;
-
           function currencyConverter(currency_from,currency_to,currency_input)
           {
             var yql_base_url = "https://query.yahooapis.com/v1/public/yql";
@@ -32,12 +26,9 @@ myApp.controller('QConvertController', function($http, $log, $interval) {
             var yql_query_url = yql_base_url + "?q=" + yql_query + "&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
             var http_response = httpGet(yql_query_url);
             var http_response_json = JSON.parse(http_response);
-            console.log(yql_query_url )
-
-
+            console.log(yql_query_url );
             return http_response_json.query.results.rate.Rate;
           }
-
           function httpGet(theUrl){
             var xmlHttp = null;
             xmlHttp = new XMLHttpRequest();
@@ -54,23 +45,74 @@ myApp.controller('QConvertController', function($http, $log, $interval) {
         };
     });
     myApp.controller('TableController', function(){
+      this.save = function() {
+         var t = document.getElementById("theTable");
+         var row = document.createElement('tr');
+         row.setAttribute('class', 'clickable-row')
+         var td = document.createElement('td');
+         var input = document.createElement('input');
+         input.setAttribute('class', 'form-control');
+         input.setAttribute('type', 'text');
+         td.appendChild(input);
 
-      this.addRow = function() {
-          var t = document.getElementById("theTable");
-          var rows = t.getElementsByTagName("tr");
-          var r = rows[rows.length - 1];
-          r.parentNode.insertBefore(getTemplateRow(), r);
+         var td1 = document.createElement('td');
+         var input1 = document.createElement('input');
+         input1.setAttribute('class', 'form-control control');
+         input1.setAttribute('type', 'number');
+        //  input1.setAttribute('value', '{{vm.}}');
+        //  input1.setAttribute('name', 'currency');
+         input1.setAttribute('pattern', '0+\.[0-9]*[1-9][0-9]*$')
+        //  input1.setAttribute('ng-model','vm.ti')
+         td1.appendChild(input1);
+         var td2 = document.createElement('td');
+         td2.setAttribute('class', "text-center");
+         var button = document.createElement('input');
+         button.type ="button";
+         button.className ="btn btn-xs btn-primary";
+         button.value ="Delete";
+         button.onclick= function(){
+           console.log('this is being deleted');
+         }
+
+
+        td2.appendChild(button);
+        var button1 = document.createElement('input');
+        button1.type ="button";
+        button1.className ="btn btn-xs btn-primary";
+        button1.value ="Edit";
+        button1.onclick= function(){
+          console.log('this is being deleted');
         }
+       td2.appendChild(button1);
+       row.appendChild(td);
+       row.appendChild(td1);
+       row.appendChild(td2);
+       t.appendChild(row);
 
-      var maxID = 0;
-      function getTemplateRow() {
-          var x = document.getElementById("templateRow").cloneNode(true);
-          x.id = "";
-          x.style.display = "";
-          x.innerHTML = x.innerHTML.replace(/{id}/, ++maxID);
-          return x;
       }
 
+      this.convert=function(curr){
+
+        var k = document.getElementsByClassName("form-control control");
 
 
+          if(curr=='USD'){
+            for(var i=0; i<k.length; i++){
+              var p = document.getElementsByClassName("form-control control")[i].value;
+            document.getElementsByClassName("form-control control")[i].value = p;
+            }
+          }
+          else if(curr=='MXN'){
+            for(var i=0; i<k.length; i++){
+              var p = document.getElementsByClassName("form-control control")[i].value;
+              document.getElementsByClassName("form-control control")[i].value = p*20.33;
+            }
+          }
+          else if(curr=='EUR'){
+            for(var i=0; i<k.length; i++){
+              var p = document.getElementsByClassName("form-control control")[i].value;
+              document.getElementsByClassName("form-control control")[i].value = p*0.96;
+            }
+          }
+      }
     });
