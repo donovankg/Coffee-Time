@@ -1,0 +1,78 @@
+body {
+	background-image: url("../images/bg.jpg");
+}
+
+
+/*Navbar config*/
+
+.navbar {
+	background-image: url("../images/texture.png");
+	background-repeat: repeat;
+	padding: 5px;
+}
+
+.navbar-toggle {
+	display: block;
+}
+
+.li {
+	margin: 5px;
+}
+
+.logo {
+	width: 160px;
+}
+
+/*Container Config*/
+
+section {
+	padding-top: 75px;
+}
+
+.row {
+	position: relative;
+	padding-top: 75px;
+}
+
+.col-sm-8,
+.col-sm-4,
+.col-sm-12{
+	/*margin: 1px;*/
+	box-sizing: border-box;
+/*	margin: 5px;*/
+	border: 1px solid white;
+	height: 30em;
+	background-color: rgba(255, 255, 255, .5)
+}
+
+
+.box {
+	margin: auto;
+}
+
+.col-sm-6 .box2:active {
+	cursor: move;
+	@include box-shadow(0 20px 50px rgba(0,
+	0,
+	0,
+	.9));
+}
+
+.col-sm-6 .content {
+	margin: auto;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+	.navbar {
+		background-image: url("../images/texture.png");
+		background-repeat: repeat;
+		padding: 7px 0px 12px 0px;
+		display: flex;
+		align-content: center;
+	}
+	.logo {
+		width: 500px;
+	}
+	
+}
+
