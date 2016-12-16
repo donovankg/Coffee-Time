@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <link href="index.css" rel="stylesheet" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body style=" width: 60%; margin: 0 auto; overflow:scroll;" ng-style="weatherBackground" class="text-center" ng-app="weatherApp" ng-controller="weatherCtrl">
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <a class="navbar-brand" sytle="font-size: 100px;" href="#index.html">My Weather  <i class="fa fa-cloud" style="font-size:24px;"></i> </a>
+
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="row-height">
+            <div class="btn" style=" width: 97%; font-size: 20px; margin-bottom: 10px; background-color:rgba(0,0,0,0.5); color:white; height: 50px;">
+                Tommorow <br>
+                <div class="btn-group-vertical" style="margin-top: 30px; width:95%;">
+                    <button style=" height: 64" class="btn btn-primary"> Description - {{description | uppercase}} <img ng-src="{{icon}}"/> </button>
+                    <button  class="btn btn-primary"> Wind Speed -  {{speed}} </button>
+                    <button  class="btn btn-primary"> City - {{joke}} </button>
+                    <!-- <button  class="btn btn-primary "> {{date}}</button> -->
+                    <button  class="btn btn-primary" ng-init="tempVal=true" ng-show="tempVal" ng-click="tempVal=!tempVal"> Toggle (C/F) -  {{fTemp}}  </button>
+                    <button  class="btn btn-primary" ng-show="!tempVal" ng-click="tempVal=!tempVal"> Toggle (C/F) -  {{cTemp}}  </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="next.js">
+    </script>
+</body>
+
+</html>
