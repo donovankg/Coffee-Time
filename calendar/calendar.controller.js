@@ -17,5 +17,7 @@ angular
 
     this.calendarView = 'month';
     this.viewDate = new Date();
-
+    this.addEvent = function(){
+      console.log('add new');
+    }
   });
