@@ -1,22 +1,17 @@
+angular.module('coffee-time', ['mwl.calendar'])
+  .controller('calendarCtlr', function() {
 
- angular.module("coffee-time", ['ui.calendar']).controller("calendarCtlr", function($scope) {
+    this.events = [{
+      title: 'No event end date',
+      startsAt: moment().hours(3).minutes(0).toDate(),
+      // color: calendarConfig.colorTypes.info
+    }, {
+      title: 'No event end date',
+      startsAt: moment().hours(5).minutes(0).toDate(),
+      // color: calendarConfig.colorTypes.warning
+    }];
 
-this.calendarMonth = 'place holder';
-/* config object */
-   $scope.uiConfig = {
-     calendar:{
-       height: 450,
-       editable: true,
-       header:{
-         left: 'month basicWeek basicDay agendaWeek agendaDay',
-         center: 'title',
-         right: 'today prev,next'
-       },
-       eventClick: $scope.alertEventOnClick,
-       eventDrop: $scope.alertOnDrop,
-       eventResize: $scope.alertOnResize
-     }
-   };
+    this.calendarView = 'month';
+    this.viewDate = new Date();
 
-
-});
+  });
