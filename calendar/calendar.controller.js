@@ -6,7 +6,7 @@ angular
 
 
     this.events = [{
-      title: 'No event end date',
+      title: 'work on this ',
       startsAt: moment().hours(3).minutes(0).toDate(),
       color: calendarConfig.colorTypes.info
     }, {
@@ -14,7 +14,6 @@ angular
       startsAt: moment().hours(5).minutes(0).toDate(),
       color: calendarConfig.colorTypes.warning
     }];
-
     this.calendarView = 'month';
     this.viewDate = new Date();
     this.addEvent = function(){
