@@ -3,6 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script type="text/javascript">
+        window.addEventListener('load', load);
+        var storedValue =localStorage.getItem('storedValues');
+
+        var section = document.getElementsByClassName("container-fluid");
+        function load(){
+            section.innerHTML= storedValue;
+        }
+
+    </script>
     <script src= "../bower_components/angular/angular.js"></script>
     <link href= "../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css"></script>
     <link href= "../bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" type="text/css"></script>
@@ -16,7 +26,6 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#">Currency Converter</a></li>
-              <li><a href="#">Historical Exchange Rates</a></li>
             </ul>
           </div>
         </div>
@@ -38,7 +47,7 @@
                     <tr>
                       <th>Transaction</th>
                       <th class="text-right">Amount</th>
-                      <!-- <th></th> -->
+                      <th></th>
                     </tr>
                   </thead>
 
@@ -65,7 +74,7 @@
                 </table>
 
               <!-- <button class="btn btn-primary" ng-click="vm.addRow()">New</button> -->
-              <button class="btn btn-primary" ng-click="vm.save()">Save</button>
+              <button class="btn btn-primary" ng-click="vm.save()">New</button>
               </div>
                <div class="col-xs-4">
                          <div class="page-header">

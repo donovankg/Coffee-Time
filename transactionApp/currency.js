@@ -59,60 +59,77 @@ myApp.controller('QConvertController', function($http, $log, $interval) {
          var input1 = document.createElement('input');
          input1.setAttribute('class', 'form-control control');
          input1.setAttribute('type', 'number');
-        //  input1.setAttribute('value', '{{vm.}}');
-        //  input1.setAttribute('name', 'currency');
          input1.setAttribute('pattern', '0+\.[0-9]*[1-9][0-9]*$')
-        //  input1.setAttribute('ng-model','vm.ti')
          td1.appendChild(input1);
+         var td3 = document.createElement('td');
+         var input2 = document.createElement('input');
+         input2.setAttribute('class', 'cont');
+        //  input2.setAttribute('type', 'number');
+         td3.appendChild(input2);
          var td2 = document.createElement('td');
          td2.setAttribute('class', "text-center");
          var button = document.createElement('input');
          button.type ="button";
          button.className ="btn btn-xs btn-primary";
          button.value ="Delete";
-         button.onclick= function(){
-           console.log('this is being deleted');
-         }
-
-
+         button.addEventListener('click', function(event){
+           if(event.target.parentNode.parentNode.className=='clickable-row'){
+             var row = event.target.parentNode.parentNode;
+             row.parentNode.removeChild(row);
+           }
+         });
         td2.appendChild(button);
         var button1 = document.createElement('input');
         button1.type ="button";
         button1.className ="btn btn-xs btn-primary";
         button1.value ="Edit";
-        button1.onclick= function(){
-          console.log('this is being deleted');
-        }
+        button1.addEventListener('click', function(event){
+          if(event.target.parentNode.parentNode.className=='clickable-row'){
+            var row = event.target.parentNode.parentNode;
+            
+          }
+        });
        td2.appendChild(button1);
        row.appendChild(td);
        row.appendChild(td1);
+       row.appendChild(td3);
        row.appendChild(td2);
        t.appendChild(row);
 
-      }
+       var section = document.getElementsByClassName("container-fluid");
+       var storeLocal = section.innerHTML;
+       localStorage.setItem('storedValues', storeLocal);
+
+     }
 
       this.convert=function(curr){
-
-        var k = document.getElementsByClassName("form-control control");
-
-
-          if(curr=='USD'){
+        var cu= curr;
+        var array=[]
+        var k=document.getElementsByClassName("form-control control");
+        for(var i=0; i<k.length; i++){
+          var p = document.getElementsByClassName("form-control control")[i].value;
+          array.push(p);
+        }
+        conv(cu,array)
+        function conv(cu, array){
+          if(cu=='USD'){
+            var k = document.getElementsByClassName("cont");
             for(var i=0; i<k.length; i++){
-              var p = document.getElementsByClassName("form-control control")[i].value;
-            document.getElementsByClassName("form-control control")[i].value = p;
+             document.getElementsByClassName("cont")[i].value = array[i] + ' USD';
             }
           }
-          else if(curr=='MXN'){
+          if(cu=='MXN'){
+            var k = document.getElementsByClassName("cont");
             for(var i=0; i<k.length; i++){
-              var p = document.getElementsByClassName("form-control control")[i].value;
-              document.getElementsByClassName("form-control control")[i].value = p*20.33;
+             document.getElementsByClassName("cont")[i].value = (array[i]*20.33).toFixed(2) + ' MXN';
             }
           }
-          else if(curr=='EUR'){
+          if(cu=='EUR'){
+            var k = document.getElementsByClassName("cont");
             for(var i=0; i<k.length; i++){
-              var p = document.getElementsByClassName("form-control control")[i].value;
-              document.getElementsByClassName("form-control control")[i].value = p*0.96;
+             document.getElementsByClassName("cont")[i].value = (array[i]*0.96).toFixed(2) + ' EUR';
             }
           }
+        }
       }
     });
