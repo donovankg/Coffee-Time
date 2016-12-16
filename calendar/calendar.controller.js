@@ -3,18 +3,7 @@ angular
     .module('coffee-time')
     .controller('calendarCtlr', function(moment, calendarConfig) {
 
-        this.event;
-        // this.seed = [{
-        //   title: 'work on this ',
-        //   startsAt: moment().hours(3).minutes(0).toDate(),
-        //   endsAt: moment().startOf('week').add(1, 'week').add(9, 'hours').toDate(),
-        //   color: calendarConfig.colorTypes.info
-        // }, {
-        //   title: 'No event end date',
-        //   startsAt: moment().hours(5).minutes(0).toDate(),
-        //   endsAt: moment().startOf('week').add(1, 'week').add(9, 'hours').toDate(),
-        //   color: calendarConfig.colorTypes.warning
-        // }];
+        this.events;
 
         this.loadData = function() {
             var retrievedData = localStorage.getItem('events');
@@ -26,22 +15,31 @@ angular
             event[field] = !event[field];
         };
         this.loadData();
+        console.log(this.events);
 
 
+        this.deleteEntry = function(index) {
 
+            this.events.splice(index, 1)
+            localStorage.setItem('events', JSON.stringify(this.events));
+
+        }
         this.calendarView = 'month';
         this.viewDate = new Date();
         this.title;
+        this.closeWindow= function(){
+          localStorage.setItem('events', JSON.stringify(this.events));
+        }
         this.addEvent = function() {
 
             this.applyEvent();
         }
+
         this.applyEvent = function() {
             var newEvent = {
                 title: 'newTitle',
-                startsAt: moment().hours(3).minutes(0).toDate(),
-                endsAt: moment().startOf('week').add(1, 'week').add(9, 'hours').toDate(),
-
+                startsAt: new Date(2016, 11, 15, 1),
+                endsAt: new Date(2016, 11, 16, 15),
                 color: calendarConfig.colorTypes.info
             }
 
