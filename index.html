@@ -11,14 +11,15 @@
 	<link rel="stylesheet" type="text/css" href="App/styles.css">
 	<script src="bower_components/angular/angular.js"></script>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
-	<script src="metcast.jquery.js"></script>
+<!--	<script src="metcast.jquery.js"></script>-->
 	<script src="../bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js"></script>
     <script src="calendar.controller.js"></script>
 	
 	<script src="app/index.js"></script>
-	<script src="bower_components/bootstrap/dist/css/bootstrap-theme.css"></script>
-	<script src="bower_components/bootstrap/dist/css/bootstrap.min.css"></script>
+
+	
 	<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	
 	<!--		<script data-main="App/index.js"></script>-->
 
 </head>
@@ -53,8 +54,9 @@
 		<div class="row">
 <!--UI VIEW for trending news-->
 			<div class="col-sm-12">
-				<div ui-view="trending"></div>
-
+				<div ui-view="trending">
+<!--				<div class="tag"><h2>Trending news</h2></div>-->
+				</div>
 			</div>
 <!--UI VIEW for calendar-->			
 			<div class="col-sm-8 box">
@@ -63,8 +65,21 @@
 			</div>
 <!--UI VIEW for transactions-->						
 			<div class="col-sm-4 box">
-
-				<div ui-view="transaction"></div>
+				<div>
+				<h4>SALES TODAY</h4>
+				<h1>$150.00</h1>
+				</div>
+				<div>
+				<h4>SALES THIS MONTH</h4>
+				<h1>$6,000.00</h1>
+				</div>
+				<div>
+				<h5>Recent Transactions</h5>
+				<p>November, 29 2016</p>
+				</div>
+			
+				
+<!--				<div ui-view="transaction"></div>-->
 			</div>
 
 

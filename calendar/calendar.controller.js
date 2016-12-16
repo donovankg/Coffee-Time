@@ -1,6 +1,5 @@
-angular.module('coffee-time', ['ui.router','mwl.calendar', 'ui.bootstrap']);
-angular
-    .module('coffee-time')
+angular.module('coffee-time', ['mwl.calendar', 'ui.bootstrap']);
+
     .controller('calendarCtlr', function(moment, calendarConfig) {
 
         this.events;
