@@ -13,21 +13,21 @@ vm.lon = data.lon;
 var apikey = "5babe75ca0e2081709ac0eda2202d4f9";
 var openWeatherUrl = "http://api.openweathermap.org/data/2.5/forecast?lat="+ vm.lat + "&lon=" +vm.lon+ "&appid=" + apikey;
 $http.get(openWeatherUrl).success(function(data){
-vm.description = data.list[0].weather[0].description;
+vm.description = data.list[3].weather[0].description;
 // console.log(data.list[0].weather[0].description);
-vm.date= data.list[0].dt;
+vm.date= data.list[3].dt;
 vm.joke = data.city.name;
 vm.speed = (2.237*data.list[0].wind.speed).toFixed(1) + " mph";
-vm.temp = data.list[0].main.temp;
+vm.temp = data.list[3].main.temp;
 vm.fTemp= (vm.temp*(9/5)-459.67).toFixed(1) + "F " ;
 vm.cTemp= (vm.temp-273).toFixed(1) + "C " ;
-vm.icon = "http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png";
+vm.icon = "http://openweathermap.org/img/w/" + data.list[3].weather[0].icon + ".png";
 
 switch(vm.description){
 case 'mist':{
  vm.weatherBackground = {
      "background": "url('http://placeimg.com/640/480/nature')",
-     
+
      "background-size" : "cover"
    };
    break;
