@@ -29,7 +29,7 @@ section {
 
 .row {
 	position: relative;
-	padding-top: 75px;
+	padding-top: 95px;
 }
 
 .col-sm-8,
@@ -42,15 +42,15 @@ section {
 /*	margin: 5px;*/
 	border: 1px solid;
 	border-color: rgba(255,255,255, .4);
-	height: 30em;
-	background-color: rgba(0,0,0, .5);
+	height: 31em;
+	background-color: rgba(3, 46, 124, 0.8);
 	color:white;
-			overflow: hidden;
+	overflow: hidden;
 }
 
 .view {
   
-	overflow:hidden;
+/*	overflow:hidden;*/
   height:inherit;
   width: 100%;
 	
@@ -59,7 +59,7 @@ section {
 .view2 {
   box-sizing: border-box;
 	padding: 5px;
-	overflow:hidden;
+/*	overflow:hidden;*/
   height:inherit;
   width: 100%;
 	
@@ -75,6 +75,10 @@ section {
    padding: 5px;
    color: #FFFFFF;
    font-weight: bold;
+}
+
+#cash {
+	left: -19px;
 }
 
 
@@ -134,7 +138,7 @@ section {
 	min-height:75px;
 	background-color: rgba(0,0,0, .5);
 	color:white;
-	overflow: hidden;
+/*	overflow: hidden;*/
 }
 	
 }

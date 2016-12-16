@@ -25,7 +25,8 @@
 				},
 				'transaction': {
 					url: '/',
- 					templateUrl: 'App/transactionV.html'
+ 					templateUrl: 'App/calendarV.html',
+					controller: 'HelloController'
 				},
 				'calendar':{
 					url: '/',
