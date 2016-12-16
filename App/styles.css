@@ -6,21 +6,19 @@ body {
 /*Navbar config*/
 
 .navbar {
+	border-radius: 0px;
 	background-image: url("../images/texture.png");
 	background-repeat: repeat;
 	padding: 5px;
 }
 
-.navbar-toggle {
-	display: block;
-}
 
 .li {
 	margin: 5px;
 }
 
 .logo {
-	width: 160px;
+	width: 190px;
 }
 
 /*Container Config*/
@@ -31,18 +29,29 @@ section {
 
 .row {
 	position: relative;
-	padding-top: 75px;
+	padding-top: 50px;
 }
 
 .col-sm-8,
 .col-sm-4,
 .col-sm-12{
+	padding: 0px;
+	
 	/*margin: 1px;*/
-	box-sizing: border-box;
+	
 /*	margin: 5px;*/
 	border: 1px solid white;
 	height: 30em;
-	background-color: rgba(255, 255, 255, .5)
+	background-color: rgba(255, 255, 255, .3);
+			overflow: hidden;
+}
+
+.view {
+
+  
+  height:inherit;
+  width: 100%;
+	
 }
 
 

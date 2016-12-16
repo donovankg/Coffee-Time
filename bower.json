@@ -21,8 +21,8 @@
     "fullcalendar": "^3.1.0",
     "jquery": "^3.1.1",
     "angular-ui-calendar": "^1.0.2",
-    "angular-bootstrap": "^2.3.1"
-    "simpleWeather": "^3.1.0"
-
+    "angular-bootstrap": "^2.3.1",
+    "simpleWeather": "^3.1.0",
+    "angular-ui-router": "^0.3.2"
   }
 }
