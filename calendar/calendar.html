@@ -8,6 +8,7 @@
      <script src="../bower_components/angular/angular.js"></script>
      <script src="../bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js"></script>
      <script src="calendar.controller.js"></script>
+     <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
      <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
      <link href="../bower_components/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css" rel="stylesheet">
 
@@ -19,15 +20,23 @@
 </head>
 
 <body ng-app="coffee-time">
+  <div ng-controller="calendarCtlr as vm">
 
-<div ng-controller="calendarCtlr as vm">
-  <mwl-calendar
-    events="vm.events"
-    view="vm.calendarView"
-    view-date="vm.viewDate"
-    >
-  </mwl-calendar>
-</div>
+    <div class="col-md-6 text-center">
 
+            <div class="btn-group">
+              <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'year'">Year</label>
+              <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'month'">Month</label>
+              <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'week'">Week</label>
+              <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'day'">Day</label>
+            </div>
+          </div>
+
+    <mwl-calendar
+      events="vm.events"
+      view="vm.calendarView"
+      view-date="vm.viewDate">
+    </mwl-calendar>
+  </div>
   </body>
 </html>
