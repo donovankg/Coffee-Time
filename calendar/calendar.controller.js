@@ -50,4 +50,3 @@ angular
             this.loadData();
         }
     });
->>>>>>> 542f3be2dd274c3967ea7f1608fd05fc174a411b
