@@ -38,13 +38,10 @@ section {
 .col-sm-4,
 .col-sm-12{
 	padding: 0px;
-	
-	/*margin: 1px;*/
-	
-/*	margin: 5px;*/
+  box-sizing: border-box;
 	border: 1px solid;
 	border-color: rgba(255,255,255, .4);
-	min-height: 31em;
+	height: 34em;
 	background-color: rgba(0,0,0, 0.8);
 	color:white;
 	overflow: hidden;
