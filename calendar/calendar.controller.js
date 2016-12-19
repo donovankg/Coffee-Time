@@ -5,6 +5,7 @@ angular
 		
 //		$rootScope.$broadcast("hi");
 
+this.showAdd = true;
         this.events;
 
         this.loadData = function() {
@@ -31,10 +32,15 @@ angular
         this.title;
         this.closeWindow= function(){
           localStorage.setItem('events', JSON.stringify(this.events));
+
+          this.showAdd = true;
+          // this.applyEvent();
+
         }
         this.addEvent = function() {
 
-            this.applyEvent();
+            // this.applyEvent();
+            this.showAdd =false;
         }
 
         this.applyEvent = function() {

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <link href="index.css" rel="stylesheet" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body style=" width: 60%; margin: 0 auto; height: 300px; overflow:scroll;" ng-style="weatherBackground" class="text-center" ng-app="weatherApp" ng-controller="weatherCtrl">
+
+
+
+    <div class="btn" style=" width: 97%; font-size: 20px; margin-bottom: 10px;  margin-top: 0px; background-color:rgba(0,0,0,0.5); color:white; height: 50px;">
+        <p class="weather" style=" float: left;" href="#index.html">Weather <i class="fa fa-cloud" style="font-size:24px;"></i> </p>
+        Today
+        <a href="next.html" data-toggle="tooltip" data-placement="top" title="Forecast for next three hours!"<i style=" float: right; margin-top: 5px; color:white" class="fa fa-arrow-right" aria-hidden="true"></i>
+        </a>
+    </div>
+
+
+
+    <div class="row">
+        <div class="row-height">
+            <div class="btn-group-vertical" style="margin-top: 0px; width: 94%;">
+                <button style=" height: 50px" class="btn btn-primary "> City - {{name | uppercase}}</button>
+                <button style=" height: 50px" class="btn btn-primary btn-responsive"> Wind Speed - {{speed}} </button>
+                <button style=" height: 50px" class="btn btn-primary btn-responsive" ng-init="tempVal=true" ng-show="tempVal" ng-click="tempVal=!tempVal">  {{fTemp}} (C/F) </button>
+                <button style=" height: 50px" class="btn btn-primary btn-responsive" ng-show="!tempVal" ng-click="tempVal=!tempVal"> {{cTemp}} (C/F)  </button>
+                <button style=" height: 50px" class="btn btn-primary btn-responsive"> Description - {{description | uppercase}} <img ng-src="{{icon}}"/>  </button>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="index.js">
+    </script>
+</body>
+
+</html>

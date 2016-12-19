@@ -1,0 +1,11 @@
+.box1 {
+    z-index: 1000;
+    padding: 15px;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    background: white;
+    border: 1px black solid;
+    padding: 5px;
+}

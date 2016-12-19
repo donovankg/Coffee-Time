@@ -1,0 +1,9 @@
+.search-query{
+  margin-top: 10px;
+}
+.weather{
+  color: white;
+}
+  body::-webkit-scrollbar {
+    display: none;
+}

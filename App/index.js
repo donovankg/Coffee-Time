@@ -1,7 +1,11 @@
+<<<<<<< HEAD
  angular.module("coffee-time", ['ui.router'])
 
 
  //Controllers for coffee time app *********************
+=======
+ angular.module("coffee-time", ['ui.router','mwl.calendar' ])
+>>>>>>> 27f6002bb211cb963ec516e357785ae543ea0b1a
 
  .controller("HelloController", function ($scope) {
  	$scope.helloTo = {};
@@ -10,6 +14,10 @@
  	console.log("im working");
  })
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 27f6002bb211cb963ec516e357785ae543ea0b1a
  .controller('QConvertController', function ($http, $log) {
  		this.currencyObject = {
  			from: null,
@@ -156,8 +164,28 @@
  		}
  	}
  })
+<<<<<<< HEAD
 
 
+=======
+        }
+
+        this.applyEvent = function() {
+            var newEvent = {
+                title: 'newTitle',
+                startsAt: new Date(2016, 11, 15, 1),
+                endsAt: new Date(2016, 11, 16, 15),
+                color: calendarConfig.colorTypes.info
+            }
+
+            this.events[this.events.length] = newEvent;
+            console.log('- this.events-->', this.events);
+            localStorage.setItem('events', JSON.stringify(this.events));
+
+            this.loadData();
+        }
+    })
+>>>>>>> 27f6002bb211cb963ec516e357785ae543ea0b1a
 
 
  .config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
@@ -193,4 +221,8 @@
  		}
  	})
 
+<<<<<<< HEAD
  }]);
+=======
+ }]);
+>>>>>>> 27f6002bb211cb963ec516e357785ae543ea0b1a
