@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+
+<head>
+	<title> Coffee Time</title>
+	<meta charset="utf-8">
+	<link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+	<link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+	<link href="../bower_components/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="App/styles.css">
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<!--	<script src="metcast.jquery.js"></script>-->
+	<script src="../bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js"></script>
+    <script src="../calendar.controller.js"></script>
+	
+	<script src="app/index.js"></script>
+
+	
+	<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	
+	<!--		<script data-main="App/index.js"></script>-->
+
+</head>
+
+<body ng-app="coffee-time" ng-controller="HelloController">
+	{{hello}}
+	
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+				<img class="logo" src="images/logo.svg">
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+         
+        </div>
+		</div>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row">
+			
+			<div class="col-sm-8">
+				<div ui-view="trending">
+				</div>
+			</div>
+<!--UI VIEW for trending news-->
+			<div class="col-sm-4">
+				<button class="btn btn-primary btn-sm pull-right">Go to App</button>
+				<div ui-view="transaction2">
+				</div>
+			</div>
+			
+<!--UI VIEW for calendar-->			
+			<div class="col-sm-8 box">
+
+				<div ui-view="calendar"></div>
+			</div>
+			
+<!--UI VIEW for transactions-->						
+			<div class="col-sm-4 box">
+				<div ui-view="transaction"></div>
+			</div>
+			
+<!--UI VIEW -->						
+			<div class="col-sm-12 box">	
+				<div ui-view="trending"></div>
+			</div>
+		</div>
+
+	</div>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	</body>
+</html>
