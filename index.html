@@ -50,29 +50,35 @@
 		</div>
 	</nav>
 
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
-<!--UI VIEW for trending news-->
-			<div class="col-sm-12">
+			
+			<div class="col-sm-8">
 				<div ui-view="trending">
-<!--				<div class="tag"><h2>Trending news</h2></div>-->
 				</div>
 			</div>
+<!--UI VIEW for trending news-->
+			<div class="col-sm-4">
+				<button class="btn btn-primary btn-sm pull-right">Go to App</button>
+				<div ui-view="transaction2">
+				</div>
+			</div>
+			
 <!--UI VIEW for calendar-->			
 			<div class="col-sm-8 box">
 
 				<div ui-view="calendar"></div>
 			</div>
+			
 <!--UI VIEW for transactions-->						
 			<div class="col-sm-4 box">
-			
-			
-				
 				<div ui-view="transaction"></div>
 			</div>
-
-
-
+			
+<!--UI VIEW -->						
+			<div class="col-sm-12 box">	
+				<div ui-view="trending"></div>
+			</div>
 		</div>
 
 	</div>
