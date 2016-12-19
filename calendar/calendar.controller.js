@@ -2,7 +2,6 @@ angular.module('coffee-time', ['mwl.calendar', 'ui.bootstrap']);
 angular
     .module('coffee-time')
     .controller('calendarCtlr', function(moment, calendarConfig) {
-
 this.showAdd = true;
         this.events;
 
@@ -30,7 +29,6 @@ this.showAdd = true;
         this.title;
         this.closeWindow= function(){
           localStorage.setItem('events', JSON.stringify(this.events));
-
           this.showAdd = true;
           // this.applyEvent();
 
