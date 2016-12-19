@@ -2,7 +2,9 @@ body {
 	background-image: url("../images/bg.jpg");
 }
 
-
+.container-fluid {
+	margin:20px;
+}
 /*Navbar config*/
 
 .navbar {
@@ -32,20 +34,39 @@ section {
 
 .row {
 	position: relative;
-	padding-top: 75px;
+	padding-top: 95px;
+
 }
 
 .col-sm-8,
 .col-sm-4,
 .col-sm-12{
 	padding: 0px;
-	border: 1px solid white;
-	height: 30em;
-	background-color: rgba(255, 255, 255, .3);
-			overflow: hidden;
+	
+	/*margin: 1px;*/
+	
+/*	margin: 5px;*/
+	border: 1px solid;
+	border-color: rgba(255,255,255, .4);
+	min-height: 31em;
+	background-color: rgba(0,0,0, 0.8);
+	color:white;
+	overflow: hidden;
 }
 
 .view {
+  
+/*	overflow:hidden;*/
+  height:inherit;
+  width: 100%;
+	
+}
+
+.view2 {
+  box-sizing: border-box;
+	padding: 5px;
+/*	overflow:scroll;*/
+
   height:inherit;
   width: 100%;
 	/*margin: 1px;*/
@@ -56,10 +77,62 @@ section {
 	background-color: rgba(255, 255, 255, .5)
 }
 
+.view3 {
+  box-sizing: border-box;
+	padding: 5px;
+/*	overflow:scroll;*/
+  height:inherit;
+  max-width: 100%;
+	max-height: 100%;
+	
+}
+
+
+.tag{
+	 float: left;
+   position: relative;
+   left: 0px;
+   top: -10px;
+   z-index: 1000;
+   background-color: rgba(0,0,0, .4);
+   padding: 5px;
+   color: #FFFFFF;
+   font-weight: bold;
+}
+
+#cash {
+	left: -19px;
+}
+
 
 .box {
 	margin: auto;
 }
+
+.agenda {  }
+
+/* Dates */
+.agenda .agenda-date { width: 170px; }
+.agenda .agenda-date .dayofmonth {
+  width: 40px;
+  font-size: 36px;
+  line-height: 36px;
+  float: left;
+  text-align: right;
+  margin-right: 10px; 
+}
+.agenda .agenda-date .shortdate {
+  font-size: 0.75em; 
+}
+
+
+/* Times */
+.agenda .agenda-time { width: 140px; } 
+
+
+/* Events */
+.agenda .agenda-events {  } 
+.agenda .agenda-events .agenda-event {  } 
 
 
 
@@ -75,5 +148,23 @@ section {
 	.logo {
 		width: 500px;
 	}
+	.col-sm-8,
+  .col-sm-4,
+  .col-sm-12{
+	   padding: 0px;
+	
+	/*margin: 1px;*/
+	
+/*	margin: 5px;*/
+	border: 1px solid;
+	border-color: rgba(255,255,255, .4);
+	min-height:75px;
+	background-color: rgba(0,0,0, .5);
+	color:white;
+/*	overflow: hidden;*/
+}
+	
+}
+
 
 }

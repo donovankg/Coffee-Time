@@ -1,8 +1,8 @@
-
 angular.module('coffee-time', ['mwl.calendar', 'ui.bootstrap']);
 angular
     .module('coffee-time')
     .controller('calendarCtlr', function(moment, calendarConfig) {
+
 this.showAdd = true;
         this.events;
 
