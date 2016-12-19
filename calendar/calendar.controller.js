@@ -1,8 +1,9 @@
-angular.module('coffee-time', ['ui.router','mwl.calendar', 'ui.bootstrap']);
+
+angular.module('coffee-time', ['mwl.calendar', 'ui.bootstrap']);
 angular
     .module('coffee-time')
     .controller('calendarCtlr', function(moment, calendarConfig) {
-
+this.showAdd = true;
         this.events;
 
         this.loadData = function() {
@@ -29,10 +30,15 @@ angular
         this.title;
         this.closeWindow= function(){
           localStorage.setItem('events', JSON.stringify(this.events));
+
+          this.showAdd = true;
+          // this.applyEvent();
+
         }
         this.addEvent = function() {
 
-            this.applyEvent();
+            // this.applyEvent();
+            this.showAdd =false;
         }
 
         this.applyEvent = function() {

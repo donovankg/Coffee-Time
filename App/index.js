@@ -1,12 +1,12 @@
  angular.module("coffee-time", ['ui.router','mwl.calendar' ])
- 
+
  .controller("HelloController", function ($scope) {
  	$scope.helloTo = {};
  	$scope.helloTo.title = "AngularJS";
 
  	console.log("im working");
  })
- 
+
  .controller('calendarCtlr', function(moment, calendarConfig) {
 
         this.events;
@@ -62,7 +62,7 @@
  	$urlRouterProvider.otherwise('/');
 
  	$stateProvider
- 		
+
 		.state('root', {
 			url: '',
 			views: {
@@ -84,7 +84,3 @@
 	})
 
  }]);
-
- 
- 
- 

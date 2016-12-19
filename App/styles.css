@@ -13,12 +13,15 @@ body {
 }
 
 
+.
+
+
 .li {
 	margin: 5px;
 }
 
 .logo {
-	width: 190px;
+	width: 160px;
 }
 
 /*Container Config*/
@@ -29,17 +32,13 @@ section {
 
 .row {
 	position: relative;
-	padding-top: 50px;
+	padding-top: 75px;
 }
 
 .col-sm-8,
 .col-sm-4,
 .col-sm-12{
 	padding: 0px;
-	
-	/*margin: 1px;*/
-	
-/*	margin: 5px;*/
 	border: 1px solid white;
 	height: 30em;
 	background-color: rgba(255, 255, 255, .3);
@@ -47,11 +46,14 @@ section {
 }
 
 .view {
-
-  
   height:inherit;
   width: 100%;
-	
+	/*margin: 1px;*/
+	box-sizing: border-box;
+/*	margin: 5px;*/
+	border: 1px solid white;
+	height: 30em;
+	background-color: rgba(255, 255, 255, .5)
 }
 
 
@@ -73,6 +75,5 @@ section {
 	.logo {
 		width: 500px;
 	}
-	
-}
 
+}
