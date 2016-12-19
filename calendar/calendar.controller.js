@@ -2,9 +2,12 @@ angular.module('coffee-time', ['mwl.calendar', 'ui.bootstrap']);
 angular
     .module('coffee-time')
     .controller('calendarCtlr', function(moment, calendarConfig) {
+<<<<<<< HEAD
 		
 //		$rootScope.$broadcast("hi");
 
+=======
+>>>>>>> f0da75e2f73b6e5747a4fde21ebde7ee577e3098
 this.showAdd = true;
         this.events;
 
@@ -32,7 +35,6 @@ this.showAdd = true;
         this.title;
         this.closeWindow= function(){
           localStorage.setItem('events', JSON.stringify(this.events));
-
           this.showAdd = true;
           // this.applyEvent();
 
