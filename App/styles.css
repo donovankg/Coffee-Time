@@ -129,6 +129,13 @@ mwl-calendar {
 /*	background-image: url("../images/bg.jpg");*/
 }
 
+.modal {
+	margin: auto;
+	width: 90%;
+	height: 60%;
+	background-color: white;
+}
+
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
 	.navbar {

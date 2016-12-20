@@ -15,7 +15,7 @@
 	<script src="bower_components/angular/angular.js"></script>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!--		<script src="calendar.controller.js"></script>-->
+	<!--		<script src="calendar.controller.js"></script>-->
 	<!--	<script src="metcast.jquery.js"></script>-->
 
 	<script src="bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js"></script>
@@ -59,11 +59,11 @@
 			<h4>Sarah Chapman</h4>
 			<h2>"Good Morning"</h2>
 		</div>
-		
+
 
 
 	</div>
-	
+
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-8">
@@ -73,22 +73,22 @@
 
 			<!--UI VIEW for trending news-->
 			<div class="col-sm-4">
-				<button class="btn btn-primary btn-sm pull-right">Go to App</button>
+				<button class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#transactionModal">Go to App</button>
 				<div ui-view="transaction2">
 				</div>
 			</div>
 
 			<!--UI VIEW for calendar-->
 			<div id="padding" class="col-sm-8 box">
-			<button class="btn btn-primary btn-sm pull-right" ng-click="vm.addEvent()">Go to App</button>
- 
-				<div ui-view="calendar"></div>
-					
-<!--*****Calendar View*******-->
+				<button class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#calendarModal">Go to App</button>
 
-<!--*****Calendar View END*******-->
+				<div ui-view="calendar"></div>
+
+				<!--*****Calendar View*******-->
+
+				<!--*****Calendar View END*******-->
 			</div>
-			
+
 
 
 			<!--<!--UI VIEW for transactions-->
@@ -104,36 +104,33 @@
 		</div>
 
 	</div>
-	
+
 	<!--*****Calendar View*******-->
-					
-					<div id="cal" class="box1 view3" ng-controller="calendarCtlr as vm" >
-           <h2 class="text-center">{{vm.calendarTitle}}</h2>
-        <div class="box">
-            <div class="text-center">
+	<div class="modal fade" id="calendarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div id="cal" class="box1 view3" ng-controller="calendarCtlr as vm">
+			<h2 class="text-center">{{vm.calendarTitle}}</h2>
+			<div class="box">
+				<div class="text-center">
 
-                <div class="btn-group">
-                    <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'year'">Year</label>
-                    <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'month'">Month</label>
-                    <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'week'">Week</label>
-                    <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'day'">Day</label>
-                    <label class="btn btn-primary" ng-click="vm.addEvent()">Add Event</label>
-                </div>
-            </div>
-        </div>
-        <mwl-calendar events="vm.events" view="vm.calendarView" view-date="vm.viewDate"
-    view-title="vm.calendarTitle"
-    view-date="vm.viewDate">
-        </mwl-calendar>
-        <div class="box1"
-        ng-hide="vm.showAdd">
+					<div class="btn-group">
+						<label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'year'">Year</label>
+						<label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'month'">Month</label>
+						<label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'week'">Week</label>
+						<label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'day'">Day</label>
+						<label class="btn btn-primary" ng-click="vm.addEvent()">Add Event</label>
+					</div>
+				</div>
+			</div>
+			<mwl-calendar events="vm.events" view="vm.calendarView" view-date="vm.viewDate" view-title="vm.calendarTitle" view-date="vm.viewDate">
+			</mwl-calendar>
+			<div class="box1" ng-hide="vm.showAdd">
 
-          <div class="box">
+				<div class="box">
 
 
-              <br class="visible-xs visible-sm">
+					<br class="visible-xs visible-sm">
 
-              <h3 id="event-editor">
+					<h3 id="event-editor">
             Edit events
             <button
               class="btn btn-primary pull-right"
@@ -148,28 +145,28 @@
             <div class="clearfix"></div>
           </h3>
 
-              <table class="table table-bordered">
-                  <thead>
-                      <tr>
-                          <th>Title</th>
-                          <th>Starts at</th>
-                          <th>Ends at</th>
-                      </tr>
-                  </thead>
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>Title</th>
+								<th>Starts at</th>
+								<th>Ends at</th>
+							</tr>
+						</thead>
 
-                  <tbody>
-                      <tr ng-repeat="event in vm.events track by $index">
-                          <td>
-                              <input type="text" class="form-control" ng-model="event.title">
-                              <button class="btn btn-danger" ng-click="vm.deleteEntry($index)">
-                    Delete
-                  </button>
-                          </td>
-                          <td>
-                              <p class="input-group" style="max-width: 250px">
-                                  <input type="text" class="form-control" readonly uib-datepicker-popup="dd MMMM yyyy" ng-model="event.startsAt" is-open="event.startOpen" close-text="Close">
+						<tbody>
+							<tr ng-repeat="event in vm.events track by $index">
+								<td>
+									<input type="text" class="form-control" ng-model="event.title">
+									<button class="btn btn-danger" ng-click="vm.deleteEntry($index)">
+										Delete
+									</button>
+								</td>
+								<td>
+									<p class="input-group" style="max-width: 250px">
+										<input type="text" class="form-control" readonly uib-datepicker-popup="dd MMMM yyyy" ng-model="event.startsAt" is-open="event.startOpen" close-text="Close">
 
-                                  <span class="input-group-btn">
+										<span class="input-group-btn">
                       <button
                         type="button"
                         class="btn btn-default"
@@ -177,14 +174,14 @@
                         <i class="glyphicon glyphicon-calendar"></i>
                       </button>
                     </span>
-                              </p>
-                              <div uib-timepicker ng-model="event.startsAt" hour-step="1" minute-step="15" show-meridian="true">
-                              </div>
-                          </td>
-                          <td>
-                              <p class="input-group" style="max-width: 250px">
-                                  <input type="text" class="form-control" readonly uib-datepicker-popup="dd MMMM yyyy" ng-model="event.endsAt" is-open="event.endOpen" close-text="Close">
-                                  <span class="input-group-btn">
+									</p>
+									<div uib-timepicker ng-model="event.startsAt" hour-step="1" minute-step="15" show-meridian="true">
+									</div>
+								</td>
+								<td>
+									<p class="input-group" style="max-width: 250px">
+										<input type="text" class="form-control" readonly uib-datepicker-popup="dd MMMM yyyy" ng-model="event.endsAt" is-open="event.endOpen" close-text="Close">
+										<span class="input-group-btn">
                       <button
                         type="button"
                         class="btn btn-default"
@@ -192,17 +189,161 @@
                         <i class="glyphicon glyphicon-calendar"></i>
                       </button>
                     </span>
-                              </p>
-                              <div uib-timepicker ng-model="event.endsAt" hour-step="1" minute-step="15" show-meridian="true">
-                              </div>
-                          </td>
-                      </tr>
-                  </tbody>
+									</p>
+									<div uib-timepicker ng-model="event.endsAt" hour-step="1" minute-step="15" show-meridian="true">
+									</div>
+								</td>
+							</tr>
+						</tbody>
 
-              </table>
+					</table>
+				</div>
+			</div>
+
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+<!--****Calendar Modal End-->
+
+<!--****Transaction Modal Start*******-->
+	<div class="modal fade" id="transactionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="view3">
+        <div class="row">
+            <div class="col-sm-9" ng-controller="TableController as vm">
+                  <div class="btn-group" role="group" aria-label="..." >
+                    <button type="button" class="btn btn-default" ng-click="vm.convert('USD')">USD</button>
+                    <button type="button" class="btn btn-default" ng-click="vm.convert('MXN')">MXN</button>
+                    <button type="button" class="btn btn-default" ng-click="vm.convert('EUR')">EUR</button>
+                  </div>
+                  <div>
+                    <div class="col-sm-8">
+                        <table class="table">
+                        	<tr>
+                        		<th>Transaction</th>
+                        		<th>Amount</th>
+                            <th><th>
+                        	</tr>
+                        	<tr ng-repeat="item in vm.statement" class ="tableTrans">
+                        		<td>{{item.transaction}}</td>
+                        		<td>{{item.amount}}</td>
+                        		<td>{{item.conversion}}</td>
+                            <td>
+                              <input type="button" value="Delete" class="btn btn-primary" ng-click="vm.delete($index)">
+                              <input type="button" value="Edit" class="btn btn-primary" ng-click="vm.edit($index)">
+                            </td>
+                        	</tr>
+                        </table>
+                     </div>
+                     <div class="col-sm-4">
+                        <form class="form-horizontal" role="form" ng-submit="vm.addRow()">
+                        	<div class="form-group">
+                        		<label class="col-md-5 control-label">Transaction</label>
+                        		<div class="col-md-5">
+                        			<input type="text" class="form-control" name="transaction"
+                        				ng-model="vm.transaction" />
+                        		</div>
+                        	</div>
+                        	<div class="form-group">
+                        		<label class="col-md-5 control-label">Amount</label>
+                        		<div class="col-md-5">
+                        			<input type="number" class="form-control" name="amount"
+                        				ng-model="vm.amount" />
+                        		</div>
+                        	</div>
+                        	<div class="form-group">
+                        		<div style="padding-left:110px">
+                        			<input type="submit" value="Submit" class="btn btn-primary"/>
+                        		</div>
+                        	</div>
+                        </form>
+                      </div>
+                      <div ng-show="vm.dialog">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                  <h4 class="modal-title">Edit</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="form-group">
+                                    <label>Transaction:</label>
+                                    <input ng-model="vm.transaction" class="form-control">
+                                  </div>
+                                  <div class="form-group">
+                                    <label>Amount:</label>
+                                    <input type="number" ng-model="vm.amount" class="form-control">
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" ng-click="vm.saveEdit()">Save</button>
+                                </div>
+                              </div>
+                            </div>
+                      </div>
+                  </div>
+            </div>
+             <div class="col-sm-3">
+                       <div class="page-header">
+                         <h4>Currency Exchanges Rates</h4>
+                       </div>
+                       <h5>Use this form to convert a specific amount from one currency<br>
+                          to another using most recent exchange rates available on <br>
+                          this site. These rates are provided by Yahoo API
+                       </h5>
+                       <div class="row" ng-controller="QConvertController as vm">
+                         <div class="col-md-8 col-md-offset-2">
+                           <div class="form-group">
+                             <label for="amount">Amount</label>
+                             <input type="number" step="any" class="form-control" id="amount" ng-model="vm.currencyObject.amount">
+                           </div>
+                         </div>
+                         <div class="col-md-8 col-md-offset-2">
+                             <div class="form-group">
+                              <label for="from">From</label>
+                               <select class="form-control" id="from" ng-model="vm.currencyObject.from">
+                                 <option ng-repeat="currencyCode in vm.currencyCodes" value="{{currencyCode.value}}" ng-click="vm.from(currencyCode.value)">{{currencyCode.display}}</option>
+                               </select>
+                             </div>
+                         </div>
+
+                       <div class="col-md-8 col-md-offset-2">
+                           <div class="form-group">
+                            <label for="to">To</label>
+                             <select class="form-control" id="to" ng-model="vm.currencyObject.to">
+                               <option ng-repeat="currencyCode in vm.currencyCodes" value="{{currencyCode.value}}" ng-click="vm.to(curr)">{{currencyCode.display}}</option>
+                             </select>
+                           </div>
+                       </div>
+                       <div class="col-md-8 col-md-offset-2">
+                           <button type="button" class="btn btn-primary" ng-click="vm.convertCurrency()">Convert Currency</button>
+                       </div>
+
+                       <div class="col-md-8 col-md-offset-2" ng-show="vm.currencyObject.amount">
+                           <h3 class="display-4" ng-If="vm.currencyObject.amountConverted != null">
+                             {{vm.currencyObject.amount}} {{vm.currencyObject.from}}
+                             <span>=</span>
+                               {{vm.currencyObject.amountConverted  | toDecimal:2}} {{vm.currencyObject.to}}
+                           </h3>
+                       </div>
+                      </div>
+                 </div>
+                </div>
           </div>
-        </div>
-    </div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+<!--****Transaction Modal End-->	
+	
+	</div>
+	</div>
+	</div>
+
+
 
 </body>
 

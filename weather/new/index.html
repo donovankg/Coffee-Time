@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" rel="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <link href="index.css" rel="stylesheet" />
@@ -13,15 +14,22 @@
 
 </head>
 
-<body style=" width: 60%; margin: 0 auto; height: 300px; overflow:scroll;" ng-style="weatherBackground" class="text-center" ng-app="weatherApp" ng-controller="weatherCtrl">
+<body style=" width: 70%; margin: 0 auto; height: 300px; overflow:scroll;" ng-style="weatherBackground" class="text-center" ng-app="weatherApp" ng-controller="weatherCtrl">
 
 
 
-    <div class="btn" style=" width: 97%; font-size: 20px; margin-bottom: 10px;  margin-top: 0px; background-color:rgba(0,0,0,0.5); color:white; height: 50px;">
+    <div class="btn" style=" width: 97%; height: 50px; font-size: 20px; margin-bottom: 10px;  margin-top: 0px; background-color:rgba(0,0,0,0.5); color:white;">
         <p class="weather" style=" float: left;" href="#index.html">Weather <i class="fa fa-cloud" style="font-size:24px;"></i> </p>
-        Today
-        <a href="next.html" data-toggle="tooltip" data-placement="top" title="Forecast for next three hours!"<i style=" float: right; margin-top: 5px; color:white" class="fa fa-arrow-right" aria-hidden="true"></i>
+      <div style="text-align: center;">  Today
+                    <!-- <form id="custom-search-form" class="form-search form-horizontal pull-right">
+                            <input type="text" id="input"  placeholder = "Select a city ">
+                            <button class="btn btn-primary btn-responsive" type="button" id="submit">Search!</button>
+
+                    </form> -->
+        <a href="next.html" data-toggle="tooltip" data-placement="top" title="Forecast for next three hours!" <i style=" float: right; margin-top: 5px; color:white" class="fa fa-arrow-right" aria-hidden="true"></i>
         </a>
+      </div>
+
     </div>
 
 
