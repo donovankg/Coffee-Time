@@ -225,7 +225,7 @@
                         		<th>Amount</th>
                             <th><th>
                         	</tr>
-                        	<tr ng-repeat="item in vm.statement" class ="tableTrans">
+                        	<tr ng-repeat="item in vm.statement track by $index" class ="tableTrans">
                         		<td>{{item.transaction}}</td>
                         		<td>{{item.amount}}</td>
                         		<td>{{item.conversion}}</td>
@@ -342,8 +342,6 @@
 	</div>
 	</div>
 	</div>
-
-
 
 </body>
 

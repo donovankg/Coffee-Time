@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link href = "../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <script src = "../bower_components/angular/angular.js"></script>
+    <script src = "../News/news.js"></script>
+
+    <style>
+    .post-content {
+      background: none repeat scroll 0 0 #FFFFFF;
+      opacity: 0.5;
+      top:0;
+      left:0;
+      color:red;
+      position:absolute;
+    }
+    .thumbnail {
+      position:absolute;
+    }
+
+    pic {
+      length: 800px;
+    }
+    .spacer {
+      margin-top: 20px;
+      border-bottom: 1px solid #ccc;
+    }
+    .sports {
+
+    }
+    .ksquare {
+      length:120px;
+      width:120px;
+    }
+    .container {
+      padding-bottom:80px;
+    }
+    </style>
+  </head>
+  <body class ="container" ng-app = 'coffee-time' ng-controller = "newsCtrl as vm">
+    <nav style="background-color:aqua;" class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img class = "ksquare" alt="Brand" src="http://ksquareinc.com/v2/wp-content/uploads/2016/04/ksquare-logo-black-red.png">
+        </a>
+      </div>
+    </div>
+  </nav>
+    <div class="container-fluid">
+      <div class="row">
+      <div class="col-md-4">
+
+        <h3>Breaking News</h3>
+    <div class="row spacer" ng-repeat="item in vm.headlines">
+     <a ng-href ='{{vm.url}}' ng-mouseover = "vm.clickTitle(item)"><h4>{{item.title}}</h4>
+     </a>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+      <!-- <a ng-href ='{{vm.url}}'><h2>{{vm.title}}</h2></a> -->
+      <h1>{{vm.title}}</h1>
+      <div class = "thumbnail"><img src = {{vm.image}}>
+      <div class="caption post-content"<solid>{{vm.description}}<solid>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>
