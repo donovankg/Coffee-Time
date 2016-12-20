@@ -78,6 +78,7 @@ myApp.controller('TableController', function(CurrencyConvert){
       this.dialog = true;
       this.cancel = function(){
         this.dialog = false;
+
       }
       this.saveEdit =()=>{
         this.statement[index].transaction =this.edit.transaction;
@@ -87,8 +88,12 @@ myApp.controller('TableController', function(CurrencyConvert){
         this.dialog = false;
       }
     };
+
     this.delete=function(index){
+
         this.statement.splice(index, 1);
         localStorage.setItem('storedValues', JSON.stringify(this.statement));
+
+
     }
 });
