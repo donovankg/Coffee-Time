@@ -77,18 +77,25 @@ myApp.controller('TableController', function(CurrencyConvert){
       }
     };
     this.edit=function(index){
-      this.transaction = this.statement[index].transaction;
-      this.amount = this.statement[index].amount;
+      this.edit.transaction = this.statement[index].transaction;
+      this.edit.amount = this.statement[index].amount;
       this.dialog = true;
-      this.saveEdit =()=>{
-        this.statement[index].transaction =this.transaction;
-        this.statement[index].amount =this.amount;
+      this.cancel = function(){
+        this.dialog = false;
+      }
+      this.saveEdit =function(){
+        this.statement[index].transaction =this.edit.transaction;
+        this.statement[index].amount =this.edit.amount;
         localStorage.setItem('storedValues', JSON.stringify(this.statement));
         this.dialog = false;
       }
     };
+
     this.delete=function(index){
+
         this.statement.splice(index, 1);
         localStorage.setItem('storedValues', JSON.stringify(this.statement));
+
+
     }
 });
