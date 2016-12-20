@@ -48,29 +48,21 @@ myApp.filter('toDecimal', function() {
     };
 });
 myApp.controller('TableController', function(CurrencyConvert){
-    // var store = document.getElementsByClassName("tableTrans");
-    // var storeLocal =[];
-    window.addEventListener('load', load);
-    function load(){
+    this.statement;
+    this.load = function(){
       this.statement = JSON.parse(localStorage.getItem('storedValues'));
-      for(var i=0; i< this.statement.length; i++){
-        console.log(this.statement[i].transaction);
-
-        this.transaction= this.statement[i].transaction;
-        this.amount= this.statement[i].amount;
-      }
     }
-    this.statement = [];
+    this.load();
     this.addRow = function(){
-  	this.statement.push({'transaction':this.transaction,'amount':this.amount, 'conversion': this.conversion});
+      var newStatement = {'transaction':this.transaction,'amount':this.amount, 'conversion': this.conversion};
+      this.statement[this.statement.length] = newStatement;
+      localStorage.setItem('storedValues', JSON.stringify(this.statement));
+      this.load();
+    	this.transaction='';
+    	this.amount='';
+      this.conversion='';
 
-    localStorage.setItem('storedValues', JSON.stringify(this.statement));
-
-  	this.transaction='';
-  	this.amount='';
-    this.conversion='';
-
-      };
+        };
     this.convert=function(curr){
       for(var i=0; i<this.statement.length; i++){
         if(curr=='USD'){
@@ -91,13 +83,12 @@ myApp.controller('TableController', function(CurrencyConvert){
       this.saveEdit =()=>{
         this.statement[index].transaction =this.transaction;
         this.statement[index].amount =this.amount;
+        localStorage.setItem('storedValues', JSON.stringify(this.statement));
         this.dialog = false;
       }
     };
-
     this.delete=function(index){
-
         this.statement.splice(index, 1);
-
+        localStorage.setItem('storedValues', JSON.stringify(this.statement));
     }
 });
