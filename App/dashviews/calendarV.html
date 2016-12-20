@@ -1,0 +1,27 @@
+<div class="view2">
+   <div class="view" ng-controller="calendarCtlr as vm">
+        <h2 class="text-center">{{vm.calendarTitle}}</h2>
+        <div class="box">
+            <h3>
+              Upcoming Events
+            </h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Starts at</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="event in vm.events track by $index">
+                        <td>
+                            {{event.title}}
+                        </td>
+                        <td>
+                            {{event.startsAt| date:'medium'}}
+                        </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

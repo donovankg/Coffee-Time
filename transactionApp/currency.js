@@ -82,11 +82,13 @@ myApp.controller('TableController', function(CurrencyConvert){
       this.dialog = true;
       this.cancel = function(){
         this.dialog = false;
+
       }
-      this.saveEdit =function(){
+      this.saveEdit =()=>{
         this.statement[index].transaction =this.edit.transaction;
         this.statement[index].amount =this.edit.amount;
         localStorage.setItem('storedValues', JSON.stringify(this.statement));
+
         this.dialog = false;
       }
     };

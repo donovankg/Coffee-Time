@@ -1,0 +1,74 @@
+<!--
+<div class="container-fluid view2">
+	<div>
+		<div class="col-sm-1">
+		</div>
+-->
+<!--
+		<div class="col-sm-6" ng-controller="TableController as vm">
+			<div class="btn-group" role="group" aria-label="..." >
+			<button type="button" class="btn btn-default" ng-click="vm.convert('USD')">USD</button>
+			<button type="button" class="btn btn-default" ng-click="vm.convert('MXN')">MXN</button>
+			<button type="button" class="btn btn-default" ng-click="vm.convert('EUR')">EUR</button>
+			</div>
+			<table class="table table-striped table-bordered">
+				<thead>
+				<tr>
+					<th>Transaction</th>
+					<th class="text-right">Amount</th>
+					<th></th>
+				</tr>
+				</thead>
+				<tbody id="theTable">
+				</tbody>
+			</table>
+			<button class="btn btn-primary" ng-click="vm.save()">New</button>
+			</div>
+-->
+			<div class="col container-fluid">
+						<div class="page-header">
+						<h3>Currency Exchanges Rates</h3>
+						</div>
+						<h6>Use this form to convert a specific amount from one currency<br>
+						to another using most recent exchange rates available on <br>
+						this site. These rates are provided by Yahoo API
+						</h6>
+						<div>
+						<div class="col-md-8 col-md-offset-2">
+						<div class="form-group">
+						<label for="amount">Amount</label>
+						<input type="number" step="any" class="form-control" id="amount" ng-model="vm.currencyObject.amount">
+						</div>
+						</div>
+						<div class="col-md-8 col-md-offset-2">
+						<div class="form-group">
+						<label for="from">From</label>
+						<select class="form-control" id="from" ng-model="vm.currencyObject.from">
+						<option ng-repeat="currencyCode in vm.currencyCodes" value="{{currencyCode.value}}" ng-click="vm.from(currencyCode.value)">{{currencyCode.display}}</option>
+						</select>
+						</div>
+						</div>
+
+						<div class="col-md-8 col-md-offset-2">
+						<div class="form-group">
+						<label for="to">To</label>
+						<select class="form-control" id="to" ng-model="vm.currencyObject.to">
+						<option ng-repeat="currencyCode in vm.currencyCodes" value="{{currencyCode.value}}" ng-click="vm.to(curr)">{{currencyCode.display}}</option>
+						</select>
+						</div>
+						</div>
+						<div class="col-md-8 col-md-offset-2">
+						<button type="button" class="btn btn-primary" ng-click="vm.convertCurrency()">Convert Currency</button>
+						</div>
+
+						<div class="col-md-8 col-md-offset-2" ng-show="vm.currencyObject.amount">
+						<h3 class="display-4" ng-If="vm.currencyObject.amountConverted != null">
+						{{vm.currencyObject.amount}} {{vm.currencyObject.from}}
+						<span>=</span>
+						{{vm.currencyObject.amountConverted  | toDecimal:2}} {{vm.currencyObject.to}}
+						</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
