@@ -1,11 +1,7 @@
-<<<<<<< HEAD
- angular.module("coffee-time", ['ui.router'])
 
+ angular.module("coffee-time", ['ui.bootstrap','ui.router', 'mwl.calendar'])
 
  //Controllers for coffee time app *********************
-=======
- angular.module("coffee-time", ['ui.router','mwl.calendar' ])
->>>>>>> 27f6002bb211cb963ec516e357785ae543ea0b1a
 
  .controller("HelloController", function ($scope) {
  	$scope.helloTo = {};
@@ -14,10 +10,6 @@
  	console.log("im working");
  })
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 27f6002bb211cb963ec516e357785ae543ea0b1a
  .controller('QConvertController', function ($http, $log) {
  		this.currencyObject = {
  			from: null,
@@ -164,10 +156,44 @@
  		}
  	}
  })
-<<<<<<< HEAD
+ 
+ .controller('calendarCtlr', function(moment, calendarConfig) {
+
+this.showAdd = true;
+        this.events;
+
+        this.loadData = function() {
+            var retrievedData = localStorage.getItem('events');
+            this.events = JSON.parse(retrievedData);
+        }
+        this.toggle = function($event, field, event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+            event[field] = !event[field];
+        };
+        this.loadData();
+        console.log(this.events);
 
 
-=======
+        this.deleteEntry = function(index) {
+
+            this.events.splice(index, 1)
+            localStorage.setItem('events', JSON.stringify(this.events));
+
+        }
+        this.calendarView = 'month';
+        this.viewDate = new Date();
+        this.title;
+        this.closeWindow= function(){
+          localStorage.setItem('events', JSON.stringify(this.events));
+          this.showAdd = true;
+          // this.applyEvent();
+
+        }
+        this.addEvent = function() {
+
+            // this.applyEvent();
+            this.showAdd =false;
         }
 
         this.applyEvent = function() {
@@ -185,7 +211,6 @@
             this.loadData();
         }
     })
->>>>>>> 27f6002bb211cb963ec516e357785ae543ea0b1a
 
 
  .config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
@@ -215,14 +240,11 @@
  			},
  			'calendar': {
  				url: '/',
- 				templateUrl: 'App/dashviews/transactionV.html',
- 				controller: 'HelloController'
+ 				templateUrl: 'App/dashviews/calendarV.html',
+ 				controller: 'calendarCtlr',
+				controllerAs: 'vm'
  			}
  		}
  	})
 
-<<<<<<< HEAD
- }]);
-=======
- }]);
->>>>>>> 27f6002bb211cb963ec516e357785ae543ea0b1a
+ }])
