@@ -48,12 +48,28 @@ myApp.filter('toDecimal', function() {
     };
 });
 myApp.controller('TableController', function(CurrencyConvert){
+    // var store = document.getElementsByClassName("tableTrans");
+    // var storeLocal =[];
+    window.addEventListener('load', load);
+    function load(){
+      this.statement = JSON.parse(localStorage.getItem('storedValues'));
+      for(var i=0; i< this.statement.length; i++){
+        console.log(this.statement[i].transaction);
+
+        this.transaction= this.statement[i].transaction;
+        this.amount= this.statement[i].amount;
+      }
+    }
     this.statement = [];
     this.addRow = function(){
   	this.statement.push({'transaction':this.transaction,'amount':this.amount, 'conversion': this.conversion});
+
+    localStorage.setItem('storedValues', JSON.stringify(this.statement));
+
   	this.transaction='';
   	this.amount='';
     this.conversion='';
+
       };
     this.convert=function(curr){
       for(var i=0; i<this.statement.length; i++){
@@ -61,11 +77,27 @@ myApp.controller('TableController', function(CurrencyConvert){
             this.statement[i].conversion= this.statement[i].amount + ' USD';
           }
         if(curr=='MXN'){
-          this.statement[i].conversion= ((this.statement[i].amount)*(CurrencyConvert.getExchangeRate('USD', 'MXN', 1))).toFixed(2) + ' MXN';
+          this.statement[i].conversion= ((this.statement[i].amount) * (CurrencyConvert.getExchangeRate('USD', 'MXN', 1))).toFixed(2) + ' MXN';
           }
         if(curr=='EUR'){
-          this.statement[i].conversion= ((this.statement[i].amount)*(CurrencyConvert.getExchangeRate('USD', 'EUR', 1))).toFixed(2) + ' EUR';
+          this.statement[i].conversion= ((this.statement[i].amount) * (CurrencyConvert.getExchangeRate('USD', 'EUR', 1))).toFixed(2) + ' EUR';
           }
       }
+    };
+    this.edit=function(index){
+      this.transaction = this.statement[index].transaction;
+      this.amount = this.statement[index].amount;
+      this.dialog = true;
+      this.saveEdit =()=>{
+        this.statement[index].transaction =this.transaction;
+        this.statement[index].amount =this.amount;
+        this.dialog = false;
+      }
+    };
+
+    this.delete=function(index){
+
+        this.statement.splice(index, 1);
+
     }
 });

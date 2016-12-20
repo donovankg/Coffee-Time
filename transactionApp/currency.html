@@ -38,10 +38,14 @@
                         		<th>Amount</th>
                             <th><th>
                         	</tr>
-                        	<tr ng-repeat="item in vm.statement">
+                        	<tr ng-repeat="item in vm.statement" class ="tableTrans">
                         		<td>{{item.transaction}}</td>
                         		<td>{{item.amount}}</td>
                         		<td>{{item.conversion}}</td>
+                            <td>
+                              <input type="button" value="Delete" class="btn btn-primary" ng-click="vm.delete($index)">
+                              <input type="button" value="Edit" class="btn btn-primary" ng-click="vm.edit($index)">
+                            </td>
                         	</tr>
                         </table>
                      </div>
@@ -67,6 +71,31 @@
                         		</div>
                         	</div>
                         </form>
+                      </div>
+                      <div ng-show="vm.dialog">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                  <h4 class="modal-title">Edit</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="form-group">
+                                    <label>Transaction:</label>
+                                    <input ng-model="vm.transaction" class="form-control">
+                                  </div>
+                                  <div class="form-group">
+                                    <label>Amount:</label>
+                                    <input type="number" ng-model="vm.amount" class="form-control">
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" ng-click="vm.saveEdit()">Save</button>
+                                </div>
+                              </div>
+                            </div>
                       </div>
                   </div>
             </div>
