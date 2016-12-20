@@ -1,18 +1,27 @@
 <div class="view2">
-<div>
-				<h4>SALES TODAY</h4>
-				<h1>$150.00</h1>
-				</div>
-				<div>
-				<h4>SALES THIS MONTH</h4>
-				<h1>$6,000.00</h1>
-				</div>
-				<div>
-				<h5>Recent Transactions</h5>
-				<p>November, 29 2016</p>
-				</div>
-				
-	<div id="cash" class="col-md-5">
-		<img src="/images/trans.jpg" alt="W3Schools.com">
-	</div>
+   <div class="view" ng-controller="calendarCtlr as vm">
+        <h2 class="text-center">{{vm.calendarTitle}}</h2>
+        <div class="box">
+            <h3>
+              Upcoming Events
+            </h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Starts at</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="event in vm.events track by $index">
+                        <td>
+                            {{event.title}}
+                        </td>
+                        <td>
+                            {{event.startsAt| date:'medium'}}
+                        </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
