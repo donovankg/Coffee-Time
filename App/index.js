@@ -121,7 +121,6 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar'])
 	$scope.helloTo = {};
 	$scope.helloTo.title = "AngularJS";
 
-	console.log("im working");
 })
 
 
@@ -141,8 +140,6 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar'])
 		event[field] = !event[field];
 	};
 	this.loadData();
-	console.log(this.events);
-
 
 	this.deleteEntry = function (index) {
 
