@@ -187,7 +187,7 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar'])
 	this.image;
 	this.url;
 	this.description;
-	$http.get('https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=bc809cc81f7346dbb2ee942407c79879')
+	$http.get('http://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=bc809cc81f7346dbb2ee942407c79879')
 		.then((response) => {
 			//this.data = response.data;
 			this.headlines = response.data.articles;
