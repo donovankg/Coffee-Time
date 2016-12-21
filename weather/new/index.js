@@ -7,6 +7,20 @@ classApp.controller('weatherCtrl', function($scope, $http) {
         subheading: "Current weather",
     };
 
+    vm.goTo = function(){
+      vm.second = true;
+      vm.home =true;
+    }
+    vm.goToo = function(){
+      vm.third = true;
+      vm.second =false;
+    }
+    vm.goT = function(){
+      vm.third= false;
+      vm.home =false;
+    }
+
+
     $http.get("http://ip-api.com/json").success(function(data) {
         vm.lat = data.lat;
         vm.lon = data.lon;
