@@ -57,6 +57,10 @@ section {
 	padding-top: 3px;
 }
 
+.row div {
+	margin-bottom: 15px;
+}
+
 .col-sm-8,
 .col-sm-4,
 .col-sm-12,
@@ -64,11 +68,11 @@ section {
 	.col-sm-2{
 	padding: 0px;
 	box-sizing: border-box;
-	border: 1px solid;
+/*	border: 1px solid;*/
 	height: 20em;
 	min-height: 15em;
-	border: 1px solid;
-	border-color: rgba(255, 255, 255, .4);
+/*	border: 1px solid;*/
+/*	border-color: rgba(255, 255, 255, .4);*/
 	
 	
 	overflow: hidden;

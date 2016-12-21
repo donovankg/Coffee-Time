@@ -216,43 +216,36 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar', 'ds.
 	}
 })
 
-.controller('weatherCtrl', function($scope, $http) {
+.controller('weatherCtrl', function($http) {
 	console.log("weather is COOLLDDDD");
-    var vm = $scope;
-    vm.channelInfo = {
+    
+    this.channelInfo = {
         heading: "Open Weather API Project",
         subheading: "Current weather",
     };
 		
-	vm.view = false;
-	vm.view2 = true;
-	vm.view3 = true;
-//		vm.view1 = function() {
-//			
-//		}
-
-    $http.get("http://ip-api.com/json").success(function(data) {
-        vm.lat = data.lat;
-        vm.lon = data.lon;
+    $http.get("http://ip-api.com/json").then((data) => {
+        this.lat = data.lat;
+        this.lon = data.lon;
         var apikey = "5babe75ca0e2081709ac0eda2202d4f9";
-        var openWeatherUrl = "http://api.openweathermap.org/data/2.5/weather?lat=" + vm.lat + "&lon=" + vm.lon + "&appid=" + apikey;
-        $http.get(openWeatherUrl).success(function(data) {
-            vm.description = data.weather[0].description;
-            vm.speed = (2.237 * data.wind.speed).toFixed(1) + " mph";
-            vm.name = data.name;
-            vm.temp = data.main.temp;
-            vm.fTemp = (vm.temp * (9 / 5) - 459.67).toFixed(1) + "F ";
-            vm.cTemp = (vm.temp - 273).toFixed(1) + "C ";
+        var openWeatherUrl = "http://api.openweathermap.org/data/2.5/weather?lat=" + this.lat + "&lon=" + this.lon + "&appid=" + apikey;
+        $http.get(openWeatherUrl).then((data) => {
+            this.description = data.weather[0].description;
+            this.speed = (2.237 * data.wind.speed).toFixed(1) + " mph";
+            otherwise.name = data.name;
+            this.temp = data.main.temp;
+            this.fTemp = (this.temp * (9 / 5) - 459.67).toFixed(1) + "F ";
+            this.cTemp = (this.temp - 273).toFixed(1) + "C ";
 
-            vm.date = (data.dt * 1000);
+            this.date = (data.dt * 1000);
             console.log(data.dt);
 
-            vm.icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+            this.icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
 
-            switch (vm.description) {
+            switch (this.description) {
                 case 'mist':
                     {
-                        vm.weatherBackground = {
+                        this.weatherBackground = {
                             "background": "url('./image/mist.jpg')",
                             "background-size": "cover"
                         };
@@ -260,7 +253,7 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar', 'ds.
                     }
                 case 'clear sky':
                     {
-                        vm.weatherBackground = {
+                        this.weatherBackground = {
                             "background": "url('./image/clearsky.jpeg')",
                             "background-size": "cover"
                         };
@@ -268,7 +261,7 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar', 'ds.
                     }
                 case 'rain':
                     {
-                        vm.weatherBackground = {
+                        this.weatherBackground = {
                             "background": "url('./image/rain.jpeg')",
                             "background-size": "cover"
                         };
@@ -276,7 +269,7 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar', 'ds.
                     }
                 case 'broken clouds':
                     {
-                        vm.weatherBackground = {
+                        this.weatherBackground = {
                             "background": "url('./image/broken.jpeg')",
                             "background-size": "cover"
                         };
@@ -284,7 +277,7 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar', 'ds.
                     }
                 case 'few clouds':
                     {
-                        vm.weatherBackground = {
+                        this.weatherBackground = {
                             "background": "url('./image/few.jpeg')",
                             "background-size": "cover"
                         };
@@ -292,7 +285,7 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar', 'ds.
                     }
                 case 'scattered clouds':
                     {
-                        vm.weatherBackground = {
+                        this.weatherBackground = {
                             "background": "url('./image/scattered.jpeg')",
                             "background-size": "cover"
                         };
@@ -300,7 +293,7 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar', 'ds.
                     }
                 case 'thunderstorm':
                     {
-                        vm.weatherBackground = {
+                        this.weatherBackground = {
                             "background": "url('./image/thunderstorm.jpeg')",
                             "background-size": "cover"
                         };
@@ -308,14 +301,14 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar', 'ds.
                     }
                 case 'shower rain':
                     {
-                        vm.weatherBackground = {
+                        this.weatherBackground = {
                             "background": "url('./image/shower.jpeg')",
                             "background-size": "cover"
                         };
                         break;
                     }
                 default:
-                    vm.weatherBackground = {
+                    this.weatherBackground = {
                         "background": "url('./image/default.jpeg')",
 
                         "background-size": "cover"
@@ -363,7 +356,12 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar', 'ds.
 				url: '/',
 				templateUrl: 'App/dashviews/weather.html',
 				controller: 'weatherCtrl',
-//				controllerAs: 'vm'
+//			
+			},
+			'map': {
+				url: '/',
+				templateUrl: 'App/dashviews/map.html'
+			
 			}
 		}
 	})

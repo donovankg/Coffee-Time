@@ -1,6 +1,6 @@
-   <nav class="navbar navbar-brand " id="nav" ng-show="view">
+    <nav class="navbar navbar-brand " id="nav">
          <p class="pull-left"> Weather  <i class="fa fa-cloud" style="font-size:24px;"></i> </p>
-      <p id="text"> Today ({{date | date:'EEE M/d/yyyy'}})
+      <!-- <p id="text"> Today ({{date | date:'EEE M/d/yyyy'}})
        <a href="next.html" data-toggle="tooltip" data-placement="left" title="Next!"   <i style=" float: right;  color:white;" class="fa fa-arrow-right" aria-hidden="true"></i>
        </a>
 </p>
@@ -16,46 +16,56 @@
                 <div class="btn btn-info active btn-responsive eachData1" ng-show="!tempVal" ng-click="tempVal=!tempVal"> {{cTemp}} (C/F) </div>
                 <div class="btn btn-info btn-responsive eachData1"> Description - {{description | uppercase}} <img ng-src="{{icon}}" /> </div>
             </div>
-        </div>
-</nav>
+        </div> -->
 
-<!--NEXT VIEW-->
-
-
-<nav class="navbar navbar-brand " id="nav" ng-show="!view2">
-          <a href="weather.html" data-toggle="tooltip" data-placement="left" title="Go back!" <i style=" float: left;  color:white;" class="fa fa-arrow-left" aria-hidden="true"></i>
-          </a>
-          <p id="text"> Forecast ({{date | date:'EEE M/d/yyyy'}})
-           <a href="weather3.html" data-toggle="tooltip" data-placement="left" title="Next!"   <i style=" float: right;  color:white;" class="fa fa-arrow-right" aria-hidden="true"></i>
+        <div id="home" ng-hide='home'>
+          <p id="text"> Today ({{date | date:'EEE M/d/yyyy'}})
+           <a href="#second" data-toggle="tooltip" data-placement="left" title="Next!" ng-click="goTo()">
+              <!-- <i style=" float: right;  color:white;" class="fa fa-arrow-right" aria-hidden="true"></i> -->
            </a>
-    </p>
+         </p>
 
 
 
-            <div id="ro">
+            <!-- <div id="ro"> -->
                 <div id="button" class="btn-group-vertical weatherParent">
-                    <div class="btn btn-info btn-responsive eachData"> City - {{joke | uppercase}}</div>
-                    <div class="btn btn-info btn-responsive eachData"> Time - {{ date| date:'shortTime'}}</div>
-                    <div class="btn btn-info btn-responsive eachData"> Wind Speed - {{speed}} </div>
-                    <div class="btn btn-info btn-responsive eachData" ng-init="tempVal=true" ng-show="tempVal" ng-click="tempVal=!tempVal"> {{fTemp}} (C/F) </div>
-                    <div class="btn btn-info btn-responsive eachData" ng-show="!tempVal" ng-click="tempVal=!tempVal"> {{cTemp}} (C/F) </div>
-                    <div class="btn btn-info btn-responsive eachData"> Description - {{description | uppercase}} <img ng-src="{{icon}}" /> </div>
+                    <div class="btn btn-info  btn-responsive eachData1"> City - {{name | uppercase}}</div>
+                    <div class="btn btn-info  btn-responsive eachData1"> Time - {{ date| date:'shortTime'}}</div>
+                    <div class="btn btn-info btn-responsive eachData1"> Wind Speed - {{speed}} </div>
+                    <div class="btn btn-info  btn-responsive eachData1" ng-init="tempVal=true" ng-show="tempVal" ng-click="tempVal=!tempVal"> {{fTemp}} (C/F) </div>
+                    <div class="btn btn-info active btn-responsive eachData1" ng-show="!tempVal" ng-click="tempVal=!tempVal"> {{cTemp}} (C/F) </div>
+                    <div class="btn btn-info btn-responsive eachData1"> Description - {{description | uppercase}} <img ng-src="{{icon}}" /> </div>
                 </div>
-            </div>
-  </nav>
+            <!-- </div> -->
+          </div>
 
-<!--NEXT VIEW-->
-s
-
- <nav class="navbar navbar-brand " id="nav" ng-show="!view3">
-          <a href="weather2.html" data-toggle="tooltip" data-placement="left" title="Go back!" <i style=" float: left;  color:white;" class="fa fa-arrow-left" aria-hidden="true"></i>
-          </a>
+        <div id="second" ng-show='second'>
           <p id="text"> Forecast ({{date | date:'EEE M/d/yyyy'}})
-            <a href="weather.html" data-toggle="tooltip" data-placement="left" title="Home!"   <i style=" float: right; color:white;" class="fa fa-home" aria-hidden="true"></i>
-            </a>
-    </p>
+           <a href="#last" data-toggle="tooltip" data-placement="left" title="Next!" ng-click="goToo()">
+              <!-- <i style=" float: right;  color:white;" class="fa fa-arrow-right" aria-hidden="true"></i> -->
+           </a>
+         </p>
 
-            <div id="ro">
+              <div id="button" class="btn-group-vertical weatherParent">
+                  <div class="btn btn-info btn-responsive eachData"> City - {{joke | uppercase}}</div>
+                  <div class="btn btn-info btn-responsive eachData"> Time - {{ date| date:'shortTime'}}</div>
+                  <div class="btn btn-info btn-responsive eachData"> Wind Speed - {{speed}} </div>
+                  <div class="btn btn-info btn-responsive eachData" ng-init="tempVal=true" ng-show="tempVal" ng-click="tempVal=!tempVal"> {{fTemp}} (C/F) </div>
+                  <div class="btn btn-info btn-responsive eachData" ng-show="!tempVal" ng-click="tempVal=!tempVal"> {{cTemp}} (C/F) </div>
+                  <div class="btn btn-info btn-responsive eachData"> Description - {{description | uppercase}} <img ng-src="{{icon}}" /> </div>
+              </div>
+
+
+        </div>
+
+        <div id="last" ng-show='third'>
+
+          <p id="text"> Forecast ({{date | date:'EEE M/d/yyyy'}})
+            <a href="#home" data-toggle="tooltip" data-placement="left" title="Home!" ng-click="goT()">   <i style=" float: right; color:white;" class="fa fa-home" aria-hidden="true"></i>
+            </a>
+          </p>
+
+            <!-- <div id="ro"> -->
                 <div id="button" class="btn-group-vertical weatherParent">
                     <div class="btn btn-info btn-responsive eachData"> City - {{joke | uppercase}}</div>
                     <div class="btn btn-info btn-responsive eachData"> Time - {{ date| date:'shortTime'}}</div>
@@ -64,6 +74,6 @@ s
                     <div class="btn btn-info btn-responsive eachData" ng-show="!tempVal" ng-click="tempVal=!tempVal"> {{cTemp}} (C/F) </div>
                     <div class="btn btn-info btn-responsive eachData"> Description - {{description | uppercase}} <img ng-src="{{icon}}" /> </div>
                 </div>
-            </div>
-
-  </nav>
+            <!-- </div> -->
+          </div>
+</nav>
