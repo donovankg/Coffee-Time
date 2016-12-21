@@ -117,14 +117,6 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar'])
        localStorage.setItem('storedValues', JSON.stringify(this.statement));
    }
 	})
-
-
-
-
-
-
-
-
 .controller("HelloController", function ($scope) {
 	$scope.helloTo = {};
 	$scope.helloTo.title = "AngularJS";
