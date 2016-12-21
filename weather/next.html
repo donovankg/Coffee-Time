@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <link href="index.css" rel="stylesheet" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+    <body id="body" class="text-centerd" ng-style="weatherBackground"  ng-app="weatherApp" ng-controller="weatherCtrl">
+        <nav class="navbar navbar-brand " id="nav">
+          <a href="index.html" data-toggle="tooltip" data-placement="left" title="Go back!" <i style=" float: left;  color:white;" class="fa fa-arrow-left" aria-hidden="true"></i>
+          </a>
+          <p id="text"> Forecast ({{date | date:'EEE M/d/yyyy'}})
+           <a href="next3.html" data-toggle="tooltip" data-placement="left" title="Next!"   <i style=" float: right;  color:white;" class="fa fa-arrow-right" aria-hidden="true"></i>
+           </a>
+    </p>
+
+
+
+            <div id="ro">
+                <div id="button" class="btn-group-vertical weatherParent">
+                    <div class="btn btn-info btn-responsive eachData"> City - {{joke | uppercase}}</div>
+                    <div class="btn btn-info btn-responsive eachData"> Time - {{ date| date:'shortTime'}}</div>
+                    <div class="btn btn-info btn-responsive eachData"> Wind Speed - {{speed}} </div>
+                    <div class="btn btn-info btn-responsive eachData" ng-init="tempVal=true" ng-show="tempVal" ng-click="tempVal=!tempVal"> {{fTemp}} (C/F) </div>
+                    <div class="btn btn-info btn-responsive eachData" ng-show="!tempVal" ng-click="tempVal=!tempVal"> {{cTemp}} (C/F) </div>
+                    <div class="btn btn-info btn-responsive eachData"> Description - {{description | uppercase}} <img ng-src="{{icon}}" /> </div>
+                </div>
+            </div>
+  </nav>
+    <script src="next.js">
+    </script>
+</body>
+
+</html>

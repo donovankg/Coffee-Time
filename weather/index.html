@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" rel="text/javascript"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="index.js"></script>
+</head>
+
+<body>
+<div ng-app="coffee-time">
+<div ng-controller='weatherCtrl as vm'>
+  <div>
+      <div class="btn btn-info  btn-responsive eachData1"> City - {{vm.name | uppercase}}</div>
+      <div class="btn btn-info  btn-responsive eachData1"> Time - {{ vm.date| date:'shortTime'}}</div>
+      <div class="btn btn-info btn-responsive eachData1"> Wind Speed - {{vm.speed}} </div>
+      <div class="btn btn-info  btn-responsive eachData1" ng-init="tempVal=true" ng-show="tempVal" ng-click="tempVal=!tempVal"> {{vm.fTemp}} (C/F) </div>
+      <div class="btn btn-info active btn-responsive eachData1" ng-show="!tempVal" ng-click="tempVal=!tempVal"> {{vm.cTemp}} (C/F) </div>
+      <div class="btn btn-info btn-responsive eachData1"> Description - {{vm.description | uppercase}} <img ng-src="{{icon}}" /> </div>
+  </div>
+
+</div>
+</div>
+
+
+</body>
+
+</html>

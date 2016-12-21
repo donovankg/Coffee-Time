@@ -7,81 +7,209 @@
 	<link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 	<link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-	<link href="../bower_components/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css" rel="stylesheet">
+	<link href="bower_components/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css" rel="stylesheet">
+
 	<link rel="stylesheet" type="text/css" href="App/styles.css">
+	<script src="bower_components/moment/min/moment.min.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 	<script src="bower_components/angular/angular.js"></script>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<!--	<script src="metcast.jquery.js"></script>-->
-	<script src="../bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js"></script>
-    <script src="../calendar.controller.js"></script>
-	
-	<script src="app/index.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!--		<script src="calendar.controller.js"></script>-->
+	<!--	<script src="metcast.jquery.js"></script>-->
 
-	
+	<script src="bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+	<script src="app/index.js"></script>
 	<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-	
+
 	<!--		<script data-main="App/index.js"></script>-->
 
 </head>
 
 <body ng-app="coffee-time" ng-controller="HelloController">
-	{{hello}}
-	
+
 	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
+		<div class="container">
 			<div class="navbar-header">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
 
 				<img class="logo" src="images/logo.svg">
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
-          </ul>
-         
-        </div>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Dashboard</a></li>
+					<li><a href="#">Settings</a></li>
+					<li><a href="#">Profile</a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+			</div>
 		</div>
 	</nav>
 
+	<div id="user" class="container-fluid">
+		<div class="col-md-2">
+			<img src="images/user.jpg" class="img-responsive img-circle pull-right">
+		</div>
+		<div class="col-md-3">
+			<h4>Sarah Chapman</h4>
+			<h2>"Good Morning"</h2>
+		</div>
+		
+
+
+	</div>
+	
 	<div class="container-fluid">
 		<div class="row">
-			
 			<div class="col-sm-8">
 				<div ui-view="trending">
 				</div>
 			</div>
-<!--UI VIEW for trending news-->
+
+			<!--UI VIEW for trending news-->
 			<div class="col-sm-4">
 				<button class="btn btn-primary btn-sm pull-right">Go to App</button>
 				<div ui-view="transaction2">
 				</div>
 			</div>
-			
-<!--UI VIEW for calendar-->			
-			<div class="col-sm-8 box">
 
+			<!--UI VIEW for calendar-->
+			<div id="padding" class="col-sm-8 box">
+			<button class="btn btn-primary btn-sm pull-right" ng-click="vm.addEvent()">Go to App</button>
+ 
 				<div ui-view="calendar"></div>
+					
+<!--*****Calendar View*******-->
+
+<!--*****Calendar View END*******-->
 			</div>
 			
-<!--UI VIEW for transactions-->						
+
+
+			<!--<!--UI VIEW for transactions-->
 			<div class="col-sm-4 box">
 				<div ui-view="transaction"></div>
 			</div>
-			
-<!--UI VIEW -->						
-			<div class="col-sm-12 box">	
+
+			<!--UI VIEW -->
+			<div class="col-sm-12 box">
 				<div ui-view="trending"></div>
 			</div>
+
 		</div>
 
 	</div>
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-	</body>
+<<<<<<< HEAD
+
 </html>
+=======
+	
+	<!--*****Calendar View*******-->
+					
+					<div id="cal" class="box1 view3" ng-controller="calendarCtlr as vm" >
+           <h2 class="text-center">{{vm.calendarTitle}}</h2>
+        <div class="box">
+            <div class="text-center">
+
+                <div class="btn-group">
+                    <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'year'">Year</label>
+                    <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'month'">Month</label>
+                    <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'week'">Week</label>
+                    <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'day'">Day</label>
+                    <label class="btn btn-primary" ng-click="vm.addEvent()">Add Event</label>
+                </div>
+            </div>
+        </div>
+        <mwl-calendar events="vm.events" view="vm.calendarView" view-date="vm.viewDate"
+    view-title="vm.calendarTitle"
+    view-date="vm.viewDate">
+        </mwl-calendar>
+        <div class="box1"
+        ng-hide="vm.showAdd">
+
+          <div class="box">
+
+
+              <br class="visible-xs visible-sm">
+
+              <h3 id="event-editor">
+            Edit events
+            <button
+              class="btn btn-primary pull-right"
+              ng-click="vm.applyEvent();">
+              Add new
+            </button>
+            <button
+              class="btn btn-primary pull-right"
+              ng-click="vm.closeWindow()">
+              close
+            </button>
+            <div class="clearfix"></div>
+          </h3>
+
+              <table class="table table-bordered">
+                  <thead>
+                      <tr>
+                          <th>Title</th>
+                          <th>Starts at</th>
+                          <th>Ends at</th>
+                      </tr>
+                  </thead>
+
+                  <tbody>
+                      <tr ng-repeat="event in vm.events track by $index">
+                          <td>
+                              <input type="text" class="form-control" ng-model="event.title">
+                              <button class="btn btn-danger" ng-click="vm.deleteEntry($index)">
+                    Delete
+                  </button>
+                          </td>
+                          <td>
+                              <p class="input-group" style="max-width: 250px">
+                                  <input type="text" class="form-control" readonly uib-datepicker-popup="dd MMMM yyyy" ng-model="event.startsAt" is-open="event.startOpen" close-text="Close">
+
+                                  <span class="input-group-btn">
+                      <button
+                        type="button"
+                        class="btn btn-default"
+                        ng-click="vm.toggle($event, 'startOpen', event)">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                      </button>
+                    </span>
+                              </p>
+                              <div uib-timepicker ng-model="event.startsAt" hour-step="1" minute-step="15" show-meridian="true">
+                              </div>
+                          </td>
+                          <td>
+                              <p class="input-group" style="max-width: 250px">
+                                  <input type="text" class="form-control" readonly uib-datepicker-popup="dd MMMM yyyy" ng-model="event.endsAt" is-open="event.endOpen" close-text="Close">
+                                  <span class="input-group-btn">
+                      <button
+                        type="button"
+                        class="btn btn-default"
+                        ng-click="vm.toggle($event, 'endOpen', event)">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                      </button>
+                    </span>
+                              </p>
+                              <div uib-timepicker ng-model="event.endsAt" hour-step="1" minute-step="15" show-meridian="true">
+                              </div>
+                          </td>
+                      </tr>
+                  </tbody>
+
+              </table>
+          </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+>>>>>>> 9699ebac92deb884e04f86b04cfa1b8b53fe1cce

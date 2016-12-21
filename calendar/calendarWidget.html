@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>calandar widget</title>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js"></script>
+    <script src="calendar.controller.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-app="coffee-time">
+    <div class="view" ng-controller="calendarCtlr as vm">
+        <h2 class="text-center">{{vm.calendarTitle}}</h2>
+        <div class="box">
+            <h3>
+              Upcoming Events
+            </h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Starts at</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="event in vm.events track by $index">
+                        <td>
+                            {{event.title}}
+                        </td>
+                        <td>
+                            {{event.startsAt| date:'medium'}}
+                        </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
