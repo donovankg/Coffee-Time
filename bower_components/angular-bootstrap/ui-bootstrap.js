@@ -5182,7 +5182,7 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
 
               if (tooltip) {
                 tooltip.remove();
-                
+
                 tooltip = null;
                 if (adjustmentTimeout) {
                   $timeout.cancel(adjustmentTimeout);
@@ -5190,7 +5190,7 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
               }
 
               openedTooltips.remove(ttScope);
-              
+
               if (tooltipLinkedScope) {
                 tooltipLinkedScope.$destroy();
                 tooltipLinkedScope = null;
@@ -5519,7 +5519,7 @@ function ($animate, $sce, $compile, $templateRequest) {
   return {
     restrict: 'A',
     scope: { content: '@' },
-    templateUrl: 'uib/template/tooltip/tooltip-popup.html'
+    templateUrl: 'ui-boostrap/template/tooltip/tooltip-popup.html'
   };
 })
 
@@ -5531,7 +5531,7 @@ function ($animate, $sce, $compile, $templateRequest) {
   return {
     restrict: 'A',
     scope: { contentExp: '&', originScope: '&' },
-    templateUrl: 'uib/template/tooltip/tooltip-template-popup.html'
+    templateUrl: 'ui-boostrap/template/tooltip/tooltip-template-popup.html'
   };
 })
 
@@ -5545,7 +5545,7 @@ function ($animate, $sce, $compile, $templateRequest) {
   return {
     restrict: 'A',
     scope: { contentExp: '&' },
-    templateUrl: 'uib/template/tooltip/tooltip-html-popup.html'
+    templateUrl: 'ui-boostrap/template/tooltip/tooltip-html-popup.html'
   };
 })
 
