@@ -1,5 +1,5 @@
 
-angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar', 'ds.clock'])
+angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar'])
 
 //Controllers for coffee time app *********************
 
@@ -73,7 +73,7 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar', 'ds.
      }
    }
    this.addRow = function(){
-		 
+
 		 console.log('---->',this.statement);
      var newStatement = {'transaction':this.transaction,'amount':this.amount, 'conversion': this.conversion};
      this.statement[this.statement.length]=newStatement;
@@ -219,12 +219,12 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar', 'ds.
 
 .controller('weatherCtrl', function($http) {
 	console.log("weather is COOLLDDDD");
-    
+
     this.channelInfo = {
         heading: "Open Weather API Project",
         subheading: "Current weather",
     };
-		
+
     $http.get("http://ip-api.com/json").then((data) => {
         this.lat = data.lat;
         this.lon = data.lon;
@@ -357,17 +357,17 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar', 'ds.
 				url: '/',
 				templateUrl: 'App/dashviews/weather.html',
 				controller: 'weatherCtrl',
-//			
+//
 			},
 			'map': {
 				url: '/',
 				templateUrl: 'App/dashviews/map.html'
-			
+
 			}
 		}
 	})
 
 
- 
+
 
  }])
