@@ -48,14 +48,16 @@ myApp.filter('toDecimal', function() {
     };
 });
 myApp.controller('TableController', function(CurrencyConvert){
-    this.statement;
+    this.statement=[];
     this.load = function(){
-      this.statement = JSON.parse(localStorage.getItem('storedValues'));
+			if (JSON.parse(localStorage.getItem('storedValues'))){
+				      this.statement = JSON.parse(localStorage.getItem('storedValues'));
+			}
     }
     this.load();
     this.addRow = function(){
       var newStatement = {'transaction':this.transaction,'amount':this.amount, 'conversion': this.conversion};
-      this.statement[this.statement.length] = newStatement;
+      this.statement.push(newStatement);
       localStorage.setItem('storedValues', JSON.stringify(this.statement));
       this.load();
     	this.transaction='';

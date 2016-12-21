@@ -27,14 +27,6 @@
       }
     }
 })
- 
- .controller("HelloController", function ($scope) {
- 	$scope.helloTo = {};
- 	$scope.helloTo.title = "AngularJS";
-
- 	console.log("im working");
- })
-
 .controller('QConvertController', function(CurrencyConvert) {
       this.currencyObject = {
               from : null,
@@ -60,13 +52,16 @@
     };
 })
 .controller('TableController', function(CurrencyConvert){
-    this.statement;
+    this.statement = {};
     this.load = function(){
-      this.statement = JSON.parse(localStorage.getItem('storedValues'));
+			if(JSON.parse(localStorage.getItem('storedValues'))){
+				      this.statement = JSON.parse(localStorage.getItem('storedValues'));
+			}
     }
     this.load();
-    this.addRow = function(){
+    this.addRow = ()=>{
       var newStatement = {'transaction':this.transaction,'amount':this.amount, 'conversion': this.conversion};
+			console.log(this.statement);
       this.statement[this.statement.length] = newStatement;
       localStorage.setItem('storedValues', JSON.stringify(this.statement));
       this.load();
@@ -89,21 +84,39 @@
       }
     };
     this.edit=function(index){
-      this.transaction = this.statement[index].transaction;
-      this.amount = this.statement[index].amount;
+      this.edit.transaction = this.statement[index].transaction;
+      this.edit.amount = this.statement[index].amount;
       this.dialog = true;
+      this.cancel = function(){
+        this.dialog = false;
+
+      }
       this.saveEdit =()=>{
-        this.statement[index].transaction =this.transaction;
-        this.statement[index].amount =this.amount;
+        this.statement[index].transaction =this.edit.transaction;
+        this.statement[index].amount =this.edit.amount;
         localStorage.setItem('storedValues', JSON.stringify(this.statement));
+
         this.dialog = false;
       }
     };
+
     this.delete=function(index){
+
         this.statement.splice(index, 1);
         localStorage.setItem('storedValues', JSON.stringify(this.statement));
+
+
     }
 })
+ 
+ .controller("HelloController", function ($scope) {
+ 	$scope.helloTo = {};
+ 	$scope.helloTo.title = "AngularJS";
+
+ 	console.log("im working");
+ })
+
+
  
 .controller('calendarCtlr', function(moment, calendarConfig) {
 
@@ -159,6 +172,34 @@ this.showAdd = true;
             this.loadData();
         }
     })
+ 
+ .controller("newsCtrl", function($http) {
+
+  this.title;
+  this.image;
+  this.url;
+  this.description;
+    $http.get('https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=bc809cc81f7346dbb2ee942407c79879')
+      .then((response) => {
+        //this.data = response.data;
+        this.headlines = response.data.articles;
+        this.title = this.headlines[0].title;
+        this.image = this.headlines[0].urlToImage;
+        this.url = this.headlines[0].url;
+        this.description = this.headlines[0].description;
+      })
+
+       this.clickTitle = function(clicked) {
+      this.title = clicked.title;
+      this.image = clicked.urlToImage;
+      this.description = clicked.description;
+      this.url = clicked.url;
+      }
+
+      this.clickArticle = function(clicked) {
+          this.title = clicked.url;
+      }
+    })
 
 
  .config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
@@ -172,7 +213,8 @@ this.showAdd = true;
  			'trending': {
  				url: '/',
  				templateUrl: 'App/dashviews/trendingV.html',
- 				controller: 'HelloController'
+ 				controller: 'newsCtrl',
+				controllerAs: 'vm'
  			},
  			'transaction': {
  				url: '/',
