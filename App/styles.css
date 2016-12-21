@@ -67,7 +67,7 @@ section {
 	min-height: 15em;
 	border: 1px solid;
 	border-color: rgba(255, 255, 255, .4);
-/*	background-color: rgba(0, 0, 0, 0.8);*/
+	background-color: rgba(0, 0, 0, 0.8);
 	color: white;
 	overflow: hidden;
 }
@@ -136,6 +136,9 @@ mwl-calendar {
 	background-color: white;
 }
 
+ds-widget-clock {
+	width: 100%;
+}
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
 	.navbar {

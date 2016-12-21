@@ -1,0 +1,20 @@
+   <nav class="navbar navbar-brand " id="nav">
+         <p class="pull-left"> Weather  <i class="fa fa-cloud" style="font-size:24px;"></i> </p>
+      <p id="text"> Today ({{date | date:'EEE M/d/yyyy'}})
+       <a href="next.html" data-toggle="tooltip" data-placement="left" title="Next!"   <i style=" float: right;  color:white;" class="fa fa-arrow-right" aria-hidden="true"></i>
+       </a>
+</p>
+
+
+
+        <div id="ro">
+            <div id="button" class="btn-group-vertical weatherParent">
+                <div class="btn btn-info  btn-responsive eachData1"> City - {{name | uppercase}}</div>
+                <div class="btn btn-info  btn-responsive eachData1"> Time - {{ date| date:'shortTime'}}</div>
+                <div class="btn btn-info btn-responsive eachData1"> Wind Speed - {{speed}} </div>
+                <div class="btn btn-info  btn-responsive eachData1" ng-init="tempVal=true" ng-show="tempVal" ng-click="tempVal=!tempVal"> {{fTemp}} (C/F) </div>
+                <div class="btn btn-info active btn-responsive eachData1" ng-show="!tempVal" ng-click="tempVal=!tempVal"> {{cTemp}} (C/F) </div>
+                <div class="btn btn-info btn-responsive eachData1"> Description - {{description | uppercase}} <img ng-src="{{icon}}" /> </div>
+            </div>
+        </div>
+</nav>
