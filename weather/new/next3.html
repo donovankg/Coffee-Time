@@ -13,30 +13,28 @@
 
 </head>
 
-<body style=" width: 60%; margin-top: 200px; margin: 0 auto;height: 600px; overflow:scroll;" ng-style="weatherBackground" class="text-center" ng-app="weatherApp" ng-controller="weatherCtrl">
-    <div class="btn" style=" width: 97%; font-size: 20px; margin-bottom: 10px; background-color:rgba(0,0,0,0.5); color:white; height: 50px;">
-        Forecast
-        <a href="next.html" data-toggle="tooltip" data-placement="left" title="Go back!" <i style=" float: left; margin-top: 5px; color:white;" class="fa fa-arrow-left" aria-hidden="true"></i>
-        </a>
 
-    </div>
+    <body id="body" class="text-centerd" ng-style="weatherBackground"  ng-app="weatherApp" ng-controller="weatherCtrl">
+        <nav class="navbar navbar-brand " id="nav">
+          <a href="next.html" data-toggle="tooltip" data-placement="left" title="Go back!" <i style=" float: left;  color:white;" class="fa fa-arrow-left" aria-hidden="true"></i>
+          </a>
+          <p id="text"> Forecast ({{date | date:'EEE M/d/yyyy'}})
+            <a href="index.html" data-toggle="tooltip" data-placement="left" title="Home!"   <i style=" float: right; color:white;" class="fa fa-home" aria-hidden="true"></i>
+            </a>
+    </p>
 
-    <div class="row">
-        <div class="row-height">
-
-            <div class="btn-group-vertical" style="margin-top: 0px; width:94%;">
-                <button  style=" height: 50px;" class="btn btn-primary"> City - {{joke}} </button>
-                <button style=" height: 50px;" class="btn btn-primary"> Wind Speed -  {{speed}} </button>
-                <button style=" height: 50px;" class="btn btn-primary" ng-init="tempVal=true" ng-show="tempVal" ng-click="tempVal=!tempVal"> {{fTemp}} (C/F)  </button>
-                <button style=" height: 50px;" class="btn btn-primary" ng-show="!tempVal" ng-click="tempVal=!tempVal"> {{cTemp}} (C/F)  </button>
-                <button style=" height: 50px;" class="btn btn-primary"> Description - {{description | uppercase}} <img ng-src="{{icon}}"/> </button>
-
-
+            <div id="ro">
+                <div id="button" class="btn-group-vertical weatherParent">
+                    <div class="btn btn-info btn-responsive eachData"> City - {{joke | uppercase}}</div>
+                    <div class="btn btn-info btn-responsive eachData"> Time - {{ date| date:'shortTime'}}</div>
+                    <div class="btn btn-info btn-responsive eachData"> Wind Speed - {{speed}} </div>
+                    <div class="btn btn-info btn-responsive eachData" ng-init="tempVal=true" ng-show="tempVal" ng-click="tempVal=!tempVal"> {{fTemp}} (C/F) </div>
+                    <div class="btn btn-info btn-responsive eachData" ng-show="!tempVal" ng-click="tempVal=!tempVal"> {{cTemp}} (C/F) </div>
+                    <div class="btn btn-info btn-responsive eachData"> Description - {{description | uppercase}} <img ng-src="{{icon}}" /> </div>
+                </div>
             </div>
-        </div>
 
-    </div>
-
+  </nav>
     <script src="next3.js">
     </script>
 </body>
