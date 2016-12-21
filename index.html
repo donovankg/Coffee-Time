@@ -63,34 +63,34 @@
 			<h2>"Good Morning"</h2>
 		</div>
 			<div class="col-md-7">
-				<span><h1><ds-widget-clock class="glyphicon glyphicon-time"show-digital digital-format="'hh:mm a'" ></ds-widget-clock></h1></span>
+				<span><h1><ds-widget-clock show-digital digital-format="'hh:mm a'" ></ds-widget-clock></h1></span>
 			</div>
 		</div>
 	</div>
 
-	<div class="container-fluid">
+	<div class="container-fluid" style="background-color: rgba(0, 0, 0, 0.8); color: white;">
 		<div class="row">
 			
 			
-			<div id="padding" class="col-sm-8">
+			<div id="padding" class="col-sm-8" style="height: 39em;">
 				<div ui-view="trending">
 				</div>
 			</div>
 
 			<!--UI VIEW for trending news-->
-			<div id="padding" class="col-sm-4" >
+			<div id="padding" class="col-sm-4" style="height: 39em;">
 				<button class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#transactionModal">Go to App</button>
 				<div ui-view="transaction2">
 				</div>
 			</div>
 
 			<!--UI VIEW for calendar-->
-			<div id="padding" class="col-sm-4 ">
+	
+			<div id="padding" class="col-sm-2">
 				<button class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#calendarModal">Go to App</button>
 				<div ui-view="calendar"></div>
 			</div>
-			
-			<div id="padding" class="col-sm-4">
+			<div id="padding" class="col-sm-6">
 				<button class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#calendarModal">Go to App</button>
 				<div ui-view="weather"></div>
 			</div>
@@ -99,13 +99,12 @@
 
 
 			<!--<!--UI VIEW for transactions-->
-			<div id="padding" class="col-sm-4 ">
+			<div id="padding" class="col-sm-4">
 				<button class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#calendarModal">Go to App</button>
 				<div ui-view="calendar"></div>
 			</div>
-
-		</div>
-
+			</div>
+		
 	</div>
 
 	<!--*****Calendar View*******-->
@@ -211,7 +210,7 @@
 <!--****Calendar Modal End-->
 
 <!--****Transaction Modal Start*******-->
-	<div class="modal fade" id="transactionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal fade" id="transactionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="height:68%;">
 <div class="container-fluid">
         <div class="row">
             <div class="col-sm-9" ng-controller="TableController as vm">

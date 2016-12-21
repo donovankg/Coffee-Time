@@ -59,16 +59,18 @@ section {
 
 .col-sm-8,
 .col-sm-4,
-.col-sm-12 {
+.col-sm-12,
+.col-sm-6,
+	.col-sm-2{
 	padding: 0px;
 	box-sizing: border-box;
 	border: 1px solid;
-	height: 34em;
+	height: 20em;
 	min-height: 15em;
 	border: 1px solid;
 	border-color: rgba(255, 255, 255, .4);
-	background-color: rgba(0, 0, 0, 0.8);
-	color: white;
+	
+	
 	overflow: hidden;
 }
 
@@ -153,7 +155,9 @@ ds-widget-clock {
 	}
 	.col-sm-8,
 	.col-sm-4,
-	.col-sm-12 {
+	.col-sm-12,
+	.col-sm-6,
+	.col-sm-2{
 		padding: 0px;
 		border: 1px solid;
 		border-color: rgba(255, 255, 255, .4);

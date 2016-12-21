@@ -223,6 +223,13 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar', 'ds.
         heading: "Open Weather API Project",
         subheading: "Current weather",
     };
+		
+	vm.view = false;
+	vm.view2 = true;
+	vm.view3 = true;
+//		vm.view1 = function() {
+//			
+//		}
 
     $http.get("http://ip-api.com/json").success(function(data) {
         vm.lat = data.lat;
@@ -355,8 +362,6 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar', 'ds.
 			'weather': {
 				url: '/',
 				templateUrl: 'App/dashviews/weather.html',
-				templateUrl: 'App/dashviews/weather2.html',
-				templateUrl: 'App/dashviews/weather3.html',
 				controller: 'weatherCtrl',
 //				controllerAs: 'vm'
 			}
