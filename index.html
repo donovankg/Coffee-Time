@@ -192,8 +192,7 @@
                           </td>
                           <td>
                               <p class="input-group" style="max-width: 250px">
-                                  <input type="text" class="form-control" readonly
-																	ng-model="event.startsAt" is-open="event.startOpen" close-text="Close">
+                                  <input type="text" class="form-control" readonly uib-datepicker-popup="dd MMMM yyyy" ng-model="event.startsAt" is-open="event.startOpen" close-text="Close">
 
                                   <span class="input-group-btn">
 
@@ -206,21 +205,21 @@
                     </span>
 
 									</p>
-									<div ng-model="event.startsAt" hour-step="1" minute-step="15" show-meridian="true">
+									<div uib-timepicker ng-model="event.startsAt" hour-step="1" minute-step="15" show-meridian="true">
 									</div>
 								</td>
 								<td>
 									<p class="input-group" style="max-width: 250px">
-										<input type="text" class="form-control" readonly ng-model="event.endsAt" is-open="event.endOpen" close-text="Close">
+										<input type="text" class="form-control" readonly uib-datepicker-popup="dd MMMM yyyy" ng-model="event.endsAt" is-open="event.endOpen" close-text="Close">
 										<span class="input-group-btn">
 
                               </p>
-                              <div  ng-model="event.startsAt" hour-step="1" minute-step="15" show-meridian="true">
+                              <div uib-timepicker ng-model="event.startsAt" hour-step="1" minute-step="15" show-meridian="true">
                               </div>
                           </td>
                           <td>
                               <p class="input-group" style="max-width: 250px">
-                                  <input type="text" class="form-control" readonly ng-model="event.endsAt" is-open="event.endOpen" close-text="Close">
+                                  <input type="text" class="form-control" readonly uib-datepicker-popup="dd MMMM yyyy" ng-model="event.endsAt" is-open="event.endOpen" close-text="Close">
                                   <span class="input-group-btn">
 
                       <button
@@ -232,7 +231,7 @@
                     </span>
 
 									</p>
-									<div ng-model="event.endsAt" hour-step="1" minute-step="15" show-meridian="true">
+									<div uib-timepicker ng-model="event.endsAt" hour-step="1" minute-step="15" show-meridian="true">
 									</div>
 								</td>
 							</tr>
