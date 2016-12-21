@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" rel="text/javascript"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" rel="text/javascript"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <link href="index.css" rel="stylesheet" />
@@ -11,44 +10,29 @@
     <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 
-<body style=" width: 70%; margin: 0 auto; height: 300px; overflow:scroll;" ng-style="weatherBackground" class="text-center" ng-app="weatherApp" ng-controller="weatherCtrl">
+<body id="body" class="text-centerd" ng-style="weatherBackground"  ng-app="weatherApp" ng-controller="weatherCtrl">
+    <nav class="navbar navbar-brand " id="nav">
+         <p class="pull-left"> Weather  <i class="fa fa-cloud" style="font-size:24px;"></i> </p>
+      <p id="text"> Today ({{date | date:'EEE M/d/yyyy'}})
+       <a href="next.html" data-toggle="tooltip" data-placement="left" title="Next!"   <i style=" float: right;  color:white;" class="fa fa-arrow-right" aria-hidden="true"></i>
+       </a>
+</p>
 
 
 
-    <div class="btn" style=" width: 97%; height: 50px; font-size: 20px; margin-bottom: 10px;  margin-top: 0px; background-color:rgba(0,0,0,0.5); color:white;">
-        <p class="weather" style=" float: left;" href="#index.html">Weather <i class="fa fa-cloud" style="font-size:24px;"></i> </p>
-      <div style="text-align: center;">  Today
-                    <!-- <form id="custom-search-form" class="form-search form-horizontal pull-right">
-                            <input type="text" id="input"  placeholder = "Select a city ">
-                            <button class="btn btn-primary btn-responsive" type="button" id="submit">Search!</button>
-
-                    </form> -->
-        <a href="next.html" data-toggle="tooltip" data-placement="top" title="Forecast for next three hours!" <i style=" float: right; margin-top: 5px; color:white" class="fa fa-arrow-right" aria-hidden="true"></i>
-        </a>
-      </div>
-
-    </div>
-
-
-
-    <div class="row">
-        <div class="row-height">
-            <div class="btn-group-vertical" style="margin-top: 0px; width: 94%;">
-                <button style=" height: 50px" class="btn btn-primary "> City - {{name | uppercase}}</button>
-                <button style=" height: 50px" class="btn btn-primary btn-responsive"> Wind Speed - {{speed}} </button>
-                <button style=" height: 50px" class="btn btn-primary btn-responsive" ng-init="tempVal=true" ng-show="tempVal" ng-click="tempVal=!tempVal">  {{fTemp}} (C/F) </button>
-                <button style=" height: 50px" class="btn btn-primary btn-responsive" ng-show="!tempVal" ng-click="tempVal=!tempVal"> {{cTemp}} (C/F)  </button>
-                <button style=" height: 50px" class="btn btn-primary btn-responsive"> Description - {{description | uppercase}} <img ng-src="{{icon}}"/>  </button>
-
+        <div id="ro">
+            <div id="button" class="btn-group-vertical weatherParent">
+                <div class="btn btn-info  btn-responsive eachData1"> City - {{name | uppercase}}</div>
+                <div class="btn btn-info  btn-responsive eachData1"> Time - {{ date| date:'shortTime'}}</div>
+                <div class="btn btn-info btn-responsive eachData1"> Wind Speed - {{speed}} </div>
+                <div class="btn btn-info  btn-responsive eachData1" ng-init="tempVal=true" ng-show="tempVal" ng-click="tempVal=!tempVal"> {{fTemp}} (C/F) </div>
+                <div class="btn btn-info active btn-responsive eachData1" ng-show="!tempVal" ng-click="tempVal=!tempVal"> {{cTemp}} (C/F) </div>
+                <div class="btn btn-info btn-responsive eachData1"> Description - {{description | uppercase}} <img ng-src="{{icon}}" /> </div>
             </div>
         </div>
-    </div>
-
-
-
+</nav>
     <script src="index.js">
     </script>
 </body>

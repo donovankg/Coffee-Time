@@ -15,11 +15,6 @@ myApp.factory('CurrencyConvert', function($http, $log){
         var http_response = httpGet(yql_query_url);
         var http_response_json = JSON.parse(http_response);
         return http_response_json.query.results.rate.Rate;
-      },
-      load : function(){
-        var k = document.getElementById('theTable');
-        var storedValue =JSON.parse(localStorage.getItem('storedValues'));
-        k = storedValue;
       }
     }
 })
@@ -48,13 +43,15 @@ myApp.filter('toDecimal', function() {
     };
 });
 myApp.controller('TableController', function(CurrencyConvert){
+
     this.statement=[];
     this.load = function(){
 			if (JSON.parse(localStorage.getItem('storedValues'))){
 				      this.statement = JSON.parse(localStorage.getItem('storedValues'));
 			}
+
+
     }
-    this.load();
     this.addRow = function(){
       var newStatement = {'transaction':this.transaction,'amount':this.amount, 'conversion': this.conversion};
       this.statement.push(newStatement);
@@ -63,8 +60,8 @@ myApp.controller('TableController', function(CurrencyConvert){
     	this.transaction='';
     	this.amount='';
       this.conversion='';
-
         };
+    this.load();
     this.convert=function(curr){
       for(var i=0; i<this.statement.length; i++){
         if(curr=='USD'){
