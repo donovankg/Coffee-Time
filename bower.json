@@ -1,11 +1,7 @@
 {
   "name": "coffee-time",
   "description": "- angular",
-<<<<<<< HEAD
   "main": "server.js",
-=======
-  "main": "index.js",
->>>>>>> 7732c880bf93a8c61bd19f859570cb590750b9dc
   "authors": [
     "Ksquare Labs"
   ],
@@ -30,24 +26,14 @@
     "angular-ui-router": "^0.3.2",
     "moment": "momentjs#^2.17.1",
     "install": "^1.0.4",
-<<<<<<< HEAD
     "ui-bootstrap": "^2.3.1",
     "angular-ui-clock": "^0.5.1",
     "express": "^4.14.0",
     "body-parser": "^1.15.2",
     "mongoose": "^4.7.4"
   },
-	
-	"devDependencies": {},
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
-}
-=======
-    "ui-bootstrap": "^2.3.1"
   }
->>>>>>> 7732c880bf93a8c61bd19f859570cb590750b9dc
 }
