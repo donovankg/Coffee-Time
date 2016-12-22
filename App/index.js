@@ -127,6 +127,7 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar'])
 
 .controller('calendarCtlr', function (moment, calendarConfig) {
 
+
 	this.showAdd = true;
 	this.events;
 	this.loadData = function () {
@@ -158,6 +159,7 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar'])
 	}
 	this.calClose = function() {
 		console.log(this.events);
+		return this.events;
 	}
 	this.addEvent = function () {
 

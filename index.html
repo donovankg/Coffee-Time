@@ -10,9 +10,6 @@
 	<script src="bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js"></script>
 
 
-
-
-
 	<script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 	<link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="../bower_components/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css" rel="stylesheet">
@@ -143,6 +140,8 @@
 						<label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'week'">Week</label>
 						<label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'day'">Day</label>
 						<label class="btn btn-primary" ng-click="vm.addEvent()">Add Event</label>
+						<label class="btn btn-danger" data-dismiss="modal" ng-click="calClose()">Close</label>
+
 					</div>
 				</div>
 			</div>
@@ -214,10 +213,6 @@
 
 					</table>
 				</div>
-			</div>
-
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.calClose()">Close</button>
 			</div>
 		</div>
 	</div>
