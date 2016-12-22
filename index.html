@@ -2,8 +2,6 @@
 <html>
 
 <head>
-	<title> Coffee Time</title>
-	<meta charset="utf-8">
 	<script src="bower_components/angular/angular.js"></script>
 
 	<script src="bower_components/moment/min/moment.min.js"></script>
@@ -35,91 +33,103 @@
 	<!--        <script src="calendar.controller.js"></script>-->
 	<!--    <script src="metcast.jquery.js"></script>-->
 	<!-- <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script> -->
+
 </head>
 
 <body ng-app="coffee-time" ng-controller="HelloController">
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
+		<div class="container" style="width:100%; margin-left:20px; margin-right:50px;">
 			<div class="navbar-header">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				</button>
+
 
 				<img class="logo" src="images/logo.svg">
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">Dashboard</a></li>
-					<li><a href="#">Settings</a></li>
-					<li><a href="#">Profile</a></li>
-					<li><a href="#">Help</a></li>
+				<ul id="clockSize2" class="nav navbar-nav pull-right">
+
+					<li style="color:white; "><ds-widget-clock show-digital digital-format="'hh:mm a'" ></ds-widget-clock></li>
 				</ul>
+			</div>
+			<div id="navbar" >
+
 			</div>
 		</div>
 	</nav>
-
-	<div id="user" class="container-fluid">
-
+<div id="content" style="padding-top:79px;">
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-2">
 
-				<img src="images/user.jpg" class="img-responsive img-circle pull-right">
-			</div>
-			<div class="col-md-3">
-				<h4>Sarah Chapman</h4>
-				<h2>"Good Morning"</h2>
-			</div>
+			<div class="col-xs-12">
+				<div>
+					<div class="col-md-5">
 
-			<div class="col-md-7">
-				<span><h1><ds-widget-clock show-digital digital-format="'hh:mm a'" ></ds-widget-clock></h1></span>
+						<img src="images/user.jpg" class="img-responsive img-circle pull-left">
+						<h4>Sarah Chapman</h4>
+						<h2>"Good Afternoon Sarah"</h2>
+					</div>
+
+					<div id="clockSize1" class="col-md-7 pull-right" style="background-color: rgba(0, 22, 44, 0.8); margin-right:-35px;">
+						<div class="row">
+
+							<div  class="col-md-10">
+						<h2 style="color:white; width:65%;"><ds-widget-clock show-digital digital-format="'hh:mm a'" ></ds-widget-clock></h2>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-
-	<div class="container-fluid" style=" color: white;">
 		<div class="row">
 
+			<div class="col-md-8">
+				<div class="row">
+					<div  class="col-md-12" style="min-height: 39em;">
 
+						<div ui-view="trending" class="content-top" style="min-height: 39em;"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div ui-view="map" class="content-bottom"></div>
+					</div>
+					<div class="col-md-8">
+						<div class="content-bottom bg-alt img-responsive" style="background-image: url('../images/weather.jpg'); background-repeat: no-repeat; background-size:cover; background-position: center;">
 
-			<div class="col-sm-8" style="height: 39em;">
-
-				<div ui-view="trending">
+						</div>
+					</div>
 				</div>
 			</div>
-
-			<!--UI VIEW for trending news-->
-
-			<div id="padding" class="col-sm-4" style="height: 39em;">
-
-
-
-				<button class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#transactionModal">Go to App</button>
-
-				<div ui-view="transaction2">
+			<div class="col-md-4">
+				<div class="row">
+					<div  class="col-md-12">
+						<button class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#transactionModal">Go to Transaction App</button>
+						<div ui-view="transaction2" class="content-top" style="min-height: 34em;"></div>
+					</div>
 				</div>
-			</div>
+				<div class="row">
+					<div class="col-md-12">
+						<button class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#calendarModal">Go to Calendar App</button>
+						<div ui-view="calendar" class="content-bottom"></div>
+					</div>
+				</div>
 
-			<!--UI VIEW for calendar-->
-
-
-			<div id="padding" class="col-sm-2">
-
-				<div ui-view="map"></div>
-			</div>
-			<div id="padding" class="col-sm-6">
-				<!-- <button class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#calendarModal">Go to App</button> -->
-				<!-- <div ui-view="weather"></div> -->
-			</div>
+				<div class="row">
+					<div class="col-md-12" style="padding-top:10px;">
+						<div class="content-bottom " style="background-image: url('../images/weather2.jpg'); background-repeat: no-repeat; background-size:cover; background-position: center;">
+						</div>
+					</div>
+				</div>
 
 
 
-			<!--<UI VIEW for transactions-->
-			<div id="padding" class="col-sm-4">
-				<button class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#calendarModal">Go to App</button>
-				<div ui-view="calendar"></div>
+
+	</div>
+</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="footer"></div>
 			</div>
 		</div>
 	</div>
@@ -128,8 +138,12 @@
 
 
 	<!--*****Calendar View*******-->
-	<div class="modal fade" id="calendarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="height:68%;">
-		<div id="cal" class=" view3" ng-controller="calendarCtlr as vm">
+	<div class=" modal fade" id="calendarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-header">
+			<button  type="button" class="close" data-dismiss="modal"><span aria-hidden="true" style="color:black;">×</span><span class="sr-only">Close</span></button>
+			<h2 class="modal-title" id="lineModalLabel">Calendar App</h2>
+		</div>
+		<div  class="modal-body" ng-controller="calendarCtlr as vm">
 			<h2 class="text-center">{{vm.calendarTitle}}</h2>
 			<div class="box">
 				<div class="text-center">
@@ -149,6 +163,7 @@
 			</mwl-calendar>
 			<div class="box1" ng-hide="vm.showAdd">
 
+
 				<div class="box">
 					<br class="visible-xs visible-sm">
 					<h3 id="event-editor">
@@ -161,9 +176,16 @@
             <button
               class="btn btn-primary pull-right"
               ng-click="vm.closeWindow()">
-              close	</h3>
-					</button>
-					<div class="clearfix"></div>
+
+              close
+            </button>
+            <div class="clearfix"></div>
+          </h3>
+
+
+
+
+
 
 					<table class="table table-bordered">
 						<thead>
@@ -173,6 +195,7 @@
 								<th>Ends at</th>
 							</tr>
 						</thead>
+
 
 						<tbody>
 							<tr ng-repeat="event in vm.events track by $index">
@@ -206,7 +229,7 @@
 				                      </button>
 				                    </span>
 									</p>
-									<div uib-timepicker ng-model="event.endsAt" hour-step="1" minute-step="15" show-meridian="true">
+									<div uib-timepicker ng-model="event.endsAt" hour-step="1" minute-step="15" show-meridian="true"></div>
 								</td>
 							</tr>
 						</tbody>
@@ -220,7 +243,11 @@
 
 	<!--****Transaction Modal Start*******-->
 	<div class="modal fade" id="transactionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="height:68%;">
-		<div class="container-fluid">
+		<div class="modal-header">
+			<button  type="button" class="close" data-dismiss="modal"><span aria-hidden="true" style="color:black;">×</span><span class="sr-only">Close</span></button>
+			<h2 class="modal-title" id="lineModalLabel">Calendar App</h2>
+		</div>
+		<div class="modal-body">
 			<div class="row">
 				<div class="col-sm-9" ng-controller="TableController as vm">
 					<div class="btn-group" role="group" aria-label="...">
@@ -307,21 +334,18 @@
 								<input type="number" step="any" class="form-control" id="amount" ng-model="vm.currencyObject.amount">
 							</div>
 						</div>
-						<div class="col-md-8 col-md-offset-2">
-							<div class="form-group">
-								<label for="from">From</label>
-								<select class="form-control" id="from" ng-model="vm.currencyObject.from">
-                                 <option ng-repeat="currencyCode in vm.currencyCodes" value="{{currencyCode.value}}" ng-click="vm.from(currencyCode.value)">{{currencyCode.display}}</option>
-                               </select>
-							</div>
-						</div>
+
 
 						<div class="col-md-8 col-md-offset-2">
 							<div class="form-group">
 								<label for="to">To</label>
 								<select class="form-control" id="to" ng-model="vm.currencyObject.to">
-                               <option ng-repeat="currencyCode in vm.currencyCodes" value="{{currencyCode.value}}" ng-click="vm.to(curr)">{{currencyCode.display}}</option>
-                             </select>
+
+									<option ng-repeat="currencyCode in vm.currencyCodes" value="{{currencyCode.value}}" ng-click="vm.to(curr)">{{currencyCode.display}}</option>
+								</select>
+
+
+
 							</div>
 						</div>
 						<div class="col-md-8 col-md-offset-2">
@@ -339,9 +363,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		</div>
+
 	</div>
 	<!--****Transaction Modal End-->
 
