@@ -129,7 +129,6 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar'])
 
 	this.showAdd = true;
 	this.events;
-
 	this.loadData = function () {
 		var retrievedData = localStorage.getItem('events');
 		this.events = JSON.parse(retrievedData);
@@ -143,7 +142,8 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar'])
 
 	this.deleteEntry = function (index) {
 
-		this.events.splice(index, 1)
+		this.events.splice(index, 1);
+
 		localStorage.setItem('events', JSON.stringify(this.events));
 
 	}
@@ -156,6 +156,9 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar'])
 		// this.applyEvent();
 
 	}
+	this.calClose = function() {
+		console.log(this.events);
+	}
 	this.addEvent = function () {
 
 		// this.applyEvent();
@@ -165,8 +168,8 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar'])
 	this.applyEvent = function () {
 		var newEvent = {
 			title: 'newTitle',
-			startsAt: new Date(2016, 11, 15, 1),
-			endsAt: new Date(2016, 11, 16, 15),
+			startsAt: new Date(),
+			endsAt: new Date(),
 			color: calendarConfig.colorTypes.info
 		}
 
