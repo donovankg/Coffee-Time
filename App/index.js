@@ -211,54 +211,185 @@ angular.module("coffee-time", ['ui.bootstrap', 'ui.router', 'mwl.calendar', 'ds.
         this.title = clicked.url;
     }
 })
+.controller('weatherCtrl', function($http) {
+
+    this.channelInfo = {
+        heading: "Open Weather API Project",
+        subheading: "Current weather",
+    };
+    $http.get("http://ip-api.com/json").then((data)=> {
+        this.lat = data.data.lat;
+        this.lon = data.data.lon;
+        var apikey = "5babe75ca0e2081709ac0eda2202d4f9";
+
+        var openWeatherUrl = "http://api.openweathermap.org/data/2.5/weather?lat=" + this.lat + "&lon=" + this.lon + "&appid=" + apikey;
+        $http.get(openWeatherUrl).then(
+          (d)=> {
+            var data =d.data;
+                console.log("hi",data)
+            this.description = data.weather[0].description;
+            this.speed = (2.237 * data.wind.speed).toFixed(1) + " mph";
+            this.name = data.name;
+            this.temp = data.main.temp;
+            this.fTemp = (this.temp * (9 / 5) - 459.67).toFixed(1) + "F ";
+            this.cTemp = (this.temp - 273).toFixed(1) + "C ";
+            this.sunrise = (data.sys.sunrise*1000);
+            this.sunset = (data.sys.sunset*1000);
+            this.date = (data.dt * 1000);
+            this.country=(data.sys.country);
+
+            this.icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
 
 
-.config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider) {
-    $urlRouterProvider.otherwise('/');
 
-    $stateProvider
+            switch (this.description) {
+                case 'mist':
+                    {
+                        this.weatherBackground = {
+                            "background": "url('./weather/image/mist.jpg')",
+                            "background-size": "cover"
+                        };
+                        break;
+                    }
+                case 'clear sky':
+                    {
+                        this.weatherBackground = {
+                            "background": "url('./weather/image/clearsky.jpeg')",
+                            "background-size": "cover"
+                        };
+                        break;
+                    }
+                case 'rain':
+                    {
+                        this.weatherBackground = {
+                            "background": "url('./weather/image/rain.jpeg')",
+                            "background-size": "cover"
+                        };
+                        break;
+                    }
+                case 'broken clouds':
+                    {
+                        this.weatherBackground = {
+                            "background": "url('./weather/image/broken.jpeg')",
+                            "background-size": "cover"
+                        };
+                        break;
+                    }
+                case 'few clouds':
+                    {
+                        this.weatherBackground = {
+                            "background": "url('./weather/image/few.jpeg')",
+                            "background-size": "cover"
+                        };
+                        break;
+                    }
+                case 'scattered clouds':
+                    {
+                        this.weatherBackground = {
+                            "background": "url('./weather/image/scattered.jpeg')",
+                            "background-size": "cover"
+                        };
+                        break;
+                    }
+                case 'thunderstorm':
+                    {
+                        this.weatherBackground = {
+                            "background": "url('./weather/image/thunderstorm.jpeg')",
+                            "background-size": "cover"
+                        };
+                        break;
+                    }
+                case 'shower rain':
+                    {
+                        this.weatherBackground = {
+                            "background": "url('./weather/image/shower.jpeg')",
+                            "background-size": "cover"
+                        };
+                        break;
+                    }
+                default:
+                    this.weatherBackground = {
+                        "background": "url('./weather/image/default.jpeg')",
 
-        .state('root', {
-        url: '',
-        views: {
-            'trending': {
-                url: '/',
-                templateUrl: 'App/dashviews/trendingV.html',
-                controller: 'newsCtrl',
-                controllerAs: 'vm'
-            },
-            'transaction': {
-                url: '/',
-                templateUrl: 'App/dashviews/calendarV.html',
-                controller: 'HelloController'
-            },
-            'transaction2': {
-                url: '/',
-                templateUrl: 'App/dashviews/transaction2.html',
-                controller: 'TableController',
-                controller: 'QConvertController',
-                controllerAs: 'vm'
-            },
-            'calendar': {
-                url: '/',
-                templateUrl: 'App/dashviews/calendarV.html',
-                controller: 'calendarCtlr',
-                controllerAs: 'vm'
-            },
-            'weather': {
-                url: '/',
-                templateUrl: 'App/dashviews/weather.html',
-                controller: 'weatherCtrl',
-
-                controllerAs: 'vm'
-                    //
-
-            },
-            'map': {
-                url: '/',
-                templateUrl: 'App/dashviews/map.html'
-
+                        "background-size": "cover"
+                    };
+                    break;
             }
-        }
-    })
-}])
+            this.next = function(){
+              this.second=true;
+              this.home = true;
+            }
+            this.back = function(){
+              this.second=false;
+              this.home = false;
+            }
+            this.back1 = function(){
+              this.second=true;
+              this.third = false;
+            }
+            this.third1 = function(){
+              this.second=false;
+              this.third = true;
+            }
+            this.home1 = function(){
+              this.third=false;
+              this.home = false;
+            }
+
+        }).error((er)=>{
+          console.log("hi",er)
+        });
+    });
+})
+
+
+
+    .config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider) {
+        $urlRouterProvider.otherwise('/');
+
+        $stateProvider
+
+            .state('root', {
+            url: '',
+            views: {
+                'trending': {
+                    url: '/',
+                    templateUrl: 'App/dashviews/trendingV.html',
+                    controller: 'newsCtrl',
+                    controllerAs: 'vm'
+                },
+                'transaction': {
+                    url: '/',
+                    templateUrl: 'App/dashviews/calendarV.html',
+                    controller: 'HelloController'
+                },
+                'transaction2': {
+                    url: '/',
+                    templateUrl: 'App/dashviews/transaction2.html',
+                    controller: 'TableController',
+                    controller: 'QConvertController',
+                    controllerAs: 'vm'
+                },
+                'calendar': {
+                    url: '/',
+                    templateUrl: 'App/dashviews/calendarV.html',
+                    controller: 'calendarCtlr',
+                    controllerAs: 'vm'
+                },
+                'weather': {
+                    url: '/',
+                    templateUrl: 'App/dashviews/weather.html',
+                    controller: 'weatherCtrl',
+
+                    controllerAs: 'vm'
+                        //
+
+                },
+                'map': {
+                    url: '/',
+                    templateUrl: 'App/dashviews/map.html'
+
+                }
+            }
+        })
+    }])

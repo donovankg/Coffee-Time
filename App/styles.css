@@ -2,7 +2,16 @@ body {
 	background-image: url("../images/bg.jpg");
 	background-size: cover;
 }
+#nav{
+	height: 100%;
+	width: 100%;
+	margin: 0 !important;
+}
 
+#home, #newWeather{
+	padding: 0 !important;
+	margin: 0 !important;
+}
 .container-fluid {
 	margin: 20px;
 }
